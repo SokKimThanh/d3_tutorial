@@ -6,3 +6,8 @@ d3app
     .controller("EVENTS_IN_D3", EVENTS_IN_D3)
     .controller("ANIMATION_IN_D3", ANIMATION_IN_D3)
     .controller("DATA_BINDING_IN_D3", DATA_BINDING_IN_D3)
+    .controller("d3_app_ctrl", d3_app_ctrl)
+    .controller("sidebar_menu_ctrl", sidebar_menu_ctrl)
+    .controller("top_container_ctrl", top_container_ctrl)
+    .controller("page_content_ctrl", page_content_ctrl)
+    .controller("geo_ctrl", geo_ctrl)

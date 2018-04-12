@@ -1,7 +1,7 @@
 var d3_app_directive = () => {
     return {
         restrict: "E",
-        templateUrl: "views/d3app.index.html",
+        templateUrl: "views/d3_app/d3app.index.html",
         controller: ["$scope", d3_app_ctrl]
     };
 }

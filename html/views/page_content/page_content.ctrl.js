@@ -1,0 +1,1 @@
+var page_content_ctrl = function ($scope) { } 

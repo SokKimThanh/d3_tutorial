@@ -1,4 +1,4 @@
-var d3_app_ctrl = ($scope) => {
+var d3_app_ctrl = function () {
     // var panes = $scope.panes = [];
     // $scope.select = function (pane) {
     //     angular.forEach(panes, function (pane) {
@@ -14,7 +14,3 @@ var d3_app_ctrl = ($scope) => {
     //     panes.push(pane);
     // };
 }
-var d3_app_ctrl = ($scope) => {} 
-var top_container_ctrl = ($scope) => {} 
-var sidebar_menu_ctrl = ($scope) => {} 
-var page_content_ctrl = ($scope) => {} 
