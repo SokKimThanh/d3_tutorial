@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="d3_app">
 
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,7 @@
     <link rel="shortcut icon" type="image/png" href="latice.png" />
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
     <link rel="stylesheet" href="css\mystyle.css">
+    <link rel="stylesheet" href="bower_components\bootstrap\dist\css\bootstrap.min.css">
     <title>D3 tutorial</title>
 </head>
 
@@ -66,10 +67,29 @@
 
     <div id="container"></div>
     <p>D3 Tutorials</p>
+    <div id="portNumber">
+        <h4>PORT NUMBER</h4>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
     <script src="bower_components\angular\angular.min.js"></script>
     <script src="bower_components\jquery\dist\jquery.min.js"></script>
+    <script src="bower_components\bootstrap\dist\js\bootstrap.min.js"></script>
     <script src="bower_components\d3\d3.min.js"></script>
 
+    <script src="js\0_0app.js"></script>
+    
     <script src="js\1Select_DOM_Elements_using_D3.js"></script>
     <script src="js\2DOM_Manipulation_using_D3.js"></script>
     <script src="js\3Method_Chaining_in_D3.js"></script>
@@ -77,6 +97,10 @@
     <script src="js\5Events_in_D3.js"></script>
     <script src="js\6Animation_in_D3.js"></script>
     <script src="js\7Data_Binding_in_D3.js"></script>
+
+    <script src="js\0_1directives.js"></script>
+    <script src="js\0_2factories.js"></script>
+    <script src="js\0_3controllers.js"></script>
 </body>
 
 </html>
