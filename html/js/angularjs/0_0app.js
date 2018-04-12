@@ -1,1 +1,1 @@
-var d3app = angular.module("d3_app", ['$scope']);
+var d3app = angular.module("d3_app", []);
