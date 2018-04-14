@@ -1,6 +1,6 @@
-var circle_ctrl = function($scope, circle_service) {
+var circle_ctrl = function ($scope, circle_service) {
   /* changing title */
-  var header = d3.select("header.w3-container");
+  let header = d3.select("header.w3-container");
   header.append("h1").text("adding text in SVG Circle Elements");
   //Circle Data Set
   var circleData = [
@@ -24,16 +24,16 @@ var circle_ctrl = function($scope, circle_service) {
 
   //Add the circle attributes
   var circleAttributes = circles
-    .attr("cx", function(d) {
+    .attr("cx", function (d) {
       return d.cx;
     })
-    .attr("cy", function(d) {
+    .attr("cy", function (d) {
       return d.cy;
     })
-    .attr("r", function(d) {
+    .attr("r", function (d) {
       return d.radius;
     })
-    .style("fill", function(d) {
+    .style("fill", function (d) {
       return d.color;
     });
 
@@ -46,17 +46,17 @@ var circle_ctrl = function($scope, circle_service) {
 
   //Add SVG Text Element Attributes
   var textLabels = text
-    .attr("x", function(d) {
+    .attr("x", function (d) {
       return d.cx;
     })
-    .attr("y", function(d) {
+    .attr("y", function (d) {
       return d.cy;
     })
-    .text(function(d) {
+    .text(function (d) {
       return "( " + d.cx + ", " + d.cy + " )";
     })
     .attr("font-family", "sans-serif")
     .attr("font-size", "20px")
     .attr("fill", "red");
-    document.querySelector( '#D3line' ).innerHTML = '';
+  // document.querySelector('#D3line').innerHTML = '';
 };

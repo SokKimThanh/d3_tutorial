@@ -7,9 +7,7 @@ var SELECT_DOM_ELEMENTS_USING_D3 = function ($scope) {
 
     /* D3.SELECTALL(): */
     d3.selectAll("#p3").style("color", "red");
-    d3.selectAll(".myClass").style("color", "pink");
-
-
+    d3.selectAll(".myClass").style("color", "pink"); 
     /* SELECT NESTED ELEMENTS: Method Chaining.*/
     d3.select("tr").selectAll("td").style('background-color', 'yellow');
     /* Method Chaining in D3 */
