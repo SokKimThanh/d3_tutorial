@@ -1,10 +1,19 @@
-var configuration = function ($routeProvider) {
-    $routeProvider
-        .when("/", {
-            templateUrl: "views/d3_app/d3app.index.html"
-        })
-        .when("/geo", {
-            templateUrl: "views/geo/geo.view.html",
-            controller: "geo_ctrl"
-        })
-}
+var configuration = function($routeProvider) {
+  $routeProvider
+    .when("/", {
+      templateUrl: "views/page_content/page_content.index.html",
+      controller: "page_content_ctrl"
+    })
+    .when("/basic", {
+      templateUrl: "views/basic/basic.view.html",
+      controller: "basic_ctrl"
+    })
+    .when("/polygon", {
+      templateUrl: "views/polygon/polygon.view.html",
+      controller: "polygon_ctrl"
+    })
+    .when("/circle", {
+      templateUrl: "views/circle/circle.view.html",
+      controller: "circle_ctrl"
+    });
+};
