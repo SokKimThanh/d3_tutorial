@@ -13,3 +13,4 @@ d3app
     .controller("basic_ctrl", basic_ctrl)
     .controller("polygon_ctrl", polygon_ctrl)
     .controller("circle_ctrl", circle_ctrl)
+    .controller("map_location_ctrl", map_location_ctrl)

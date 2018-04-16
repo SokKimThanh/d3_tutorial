@@ -15,5 +15,9 @@ var configuration = function($routeProvider) {
     .when("/circle", {
       templateUrl: "views/circle/circle.view.html",
       controller: "circle_ctrl"
+    })
+    .when("/map_location", {
+      templateUrl: "views/map_location/map_location.view.html",
+      controller: "map_location_ctrl"
     });
 };
