@@ -1,13 +1,11 @@
 <div class="w3-main" style="margin-left:300px;margin-top:43px;" ng-controller="map_location_ctrl">
-
     <!-- Header -->
-    <header   style="padding-top:22px">
+    <header id="map_location" style="padding-top:22px">
     </header>
-    <div id="map_location" class="w3-container">
-
+    <div id="map_location" class="w3-container form-group">
+        <label for="">Add new map location</label>
+        <input class="form-control" type="text" ng-model="data">
+        <button class="btn btn-primary" ng-click="add(data)">Add</button>
     </div>
-    <footer class="w3-container w3-padding-16 w3-light-grey">
-        <h4>FOOTER</h4>
-        <p class="text-capitalize"></p>
-    </footer>
+
 </div>

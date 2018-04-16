@@ -1,7 +1,9 @@
 var circle_ctrl = function ($scope, circle_service) {
   /* changing title */
   let header = d3.select("header.w3-container");
-  header.append("h1").text("adding text in SVG Circle Elements");
+  header.append("h1")
+  d3.select("header h1").text("adding text in SVG Circle Elements");
+
   //Circle Data Set
   var circleData = [
     { cx: 20, cy: 20, radius: 20, color: "green" },
@@ -16,7 +18,7 @@ var circle_ctrl = function ($scope, circle_service) {
     .attr("height", 200);
 
   //Add circles to the svgContainer
-  var circles = svgContainer
+  var circles = d3.selectAll("div svg")
     .selectAll("circle")
     .data(circleData)
     .enter()
