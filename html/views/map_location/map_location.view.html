@@ -2,10 +2,19 @@
     <!-- Header -->
     <header id="map_location" style="padding-top:22px">
     </header>
-    <div id="map_location" class="w3-container form-group">
+    <div id="control_area">
         <label for="">Add new map location</label>
         <input class="form-control" type="text" ng-model="data">
         <button class="btn btn-primary" ng-click="add(data)">Add</button>
+        <button class="btn btn-primary" ng-click="draw()">Draw</button>
+        <button class="btn btn-primary" ng-click="export(data)">Export</button>
     </div>
-
+    <div id="map_location" class="w3-container form-group">
+        <p>D3 Tutorials </p>
+    </div>
+    <div id="map_phuoc_tien"> 
+        <svg width="50" height="50">
+            <rect x="0" y="0" width="50" height="50" fill="sandybrown" opacity="0.5" />
+        </svg>
+    </div>
 </div>
