@@ -1,4 +1,4 @@
-var configuration = function($routeProvider) {
+var configuration = function ($routeProvider) {
   $routeProvider
     .when("/", {
       templateUrl: "views/page_content/page_content.index.html",
@@ -19,5 +19,8 @@ var configuration = function($routeProvider) {
     .when("/map_location", {
       templateUrl: "views/map_location/map_location.view.html",
       controller: "map_location_ctrl"
+    }).when("/dimple", {
+      templateUrl: "views/dimple/dimple.view.html",
+      controller: "dimple_ctrl"
     });
 };

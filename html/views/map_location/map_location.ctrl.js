@@ -25,45 +25,60 @@ var map_location_ctrl = function ($scope, map_location_service) {
             map_location_service.notify("no data!")
         }
     };
-    let data = [{
-        id: "D01104",
-        name: "D01104",
-        fill: "sandybrown",
-        opacity: "0.3",
-        stroke_width: "1",
-        stoke: "red",
-        points: "1145.0, 189.50 1177.2, 183.88 1184.4, 232.06 1167.5, 237.68 1167.5, 245.71 1156.3, 245.71"
-    }, {
-        id: "D01105",
-        name: "D01104",
-        fill: "pink",
-        opacity: "0.3",
-        stroke_width: "1",
-        stoke: "red",
-        points: "1145.0, 189.50 1177.2, 183.88 1184.4, 232.06 1167.5, 237.68 1167.5, 245.71 1156.3, 245.71"
-    }];
-    $scope.export = (data) => {
-        var svg = d3.select("div#map_phuoc_tien svg")
-        var g = svg.append("g")
-            .attr("transform", function (d, i) {
-                return "translate(0,0)";
+    let data = [
+        {
+            id: "DO114", name: "DO114", fill: "green", opacity: "0.3", points: "443.90148, 226.99507 493.50411, 219.42857 506.11494, 226.99507 510.31856, 244.65025 442.22003, 255.57964"
+        },
+        {
+            id: "DO101", name: "DO101", fill: "green", opacity: "0.3", points: "431.19542, 451.26970 456.08752, 449.66376 461.70832, 499.44796 436.81622, 502.65984"
+        }
+    ];
+    var w = window.innerWidth,
+        h = window.innerHeight,
+        margin = { top: 40, right: 20, bottom: 20, left: 40 },
+        radius = 6;
+
+    var xScale = d3.scaleLinear()
+        .domain([0, d3.max(data, function (d) { return d.x + 10; })])
+        .range([margin.left, w - margin.right]);  // Set margins for x specific
+
+    // We're passing in a function in d3.max to tell it what we're maxing (y value)
+    var yScale = d3.scaleLinear()
+        .domain([0, d3.max(data, function (d) { return d.y + 10; })])
+        .range([margin.top, h - margin.bottom]);  // Set margins for y specific
+    // Create Event Handlers for mouse
+
+    function handleMouseOver(d, i) {  // Add interactivity
+
+        // Use D3 to select element, change color and size
+        d3.select(this).attr({
+            fill: "orange",
+            r: radius * 2
+        });
+
+        // Specify where to put label of text
+        svg.append("text").attr({
+            id: "t" + d.x + "-" + d.y + "-" + i,  // Create an id for text so we can select it later for removing on mouseout
+            x: function () { return xScale(d.x) - 30; },
+            y: function () { return yScale(d.y) - 15; }
+        })
+            .text(function () {
+                return [d.x, d.y];  // Value of the text
             });
-
-        var ellipse = g.append("polygon").attr("points","1083,498,1089,498,1088,487,1104,484,1104,490,1113,489,1114,492,1122,492,1122,485,1136,484,1138,497,1145,495,1147,507,1143,506,1146,520,1091,530")
-
-
-        g.append("text")
-            .attr("x", 140)
-            .attr("y", 50)
-            .attr("stroke", "steelblue")
-            .attr("font-family", "sans-serif")
-            .attr("font-size", "24px")
-            .text("11");
     }
-    $scope.draw = () => {
-        let map_div = d3.select('div#map_phuoc_tien').append('svg').attr("width", 2048 / 1.6).attr("height", 1075).attr("class", "img-fluid").attr("id", "main_svg");
-        let map_img = d3.select("div svg#main_svg").append('svg:image').attr("xlink:href", "/w3images/phuoctien.jpg").attr("class", "img img-responsive")
- 
+
+    function handleMouseOut(d, i) {
+        // Use D3 to select element, change color back to normal
+        d3.select(this).attr({
+            fill: "black",
+            r: radius
+        });
+
+        // Select text by id and then remove
+        d3.select("#t" + d.x + "-" + d.y + "-" + i).remove();  // Remove text location
+    }
+
+    $scope.export = () => {
         var getPoints = (d) => {
             let arr_string = d.points.split(" ");
             let arr_string_new = [];
@@ -81,11 +96,37 @@ var map_location_ctrl = function ($scope, map_location_service) {
             let string_join = arr_string_new.join();
             return string_join;
         }
-        d3.select("svg#main_svg").selectAll("svg")
-            .data(data).enter().append("polygon")
-            .attr("points", function (d) {
-                return getPoints(d);
-            })
-            .attr("fill", function (d) { return d.fill })
+    }
+    $scope.draw = () => {
+        let map_div = d3.select('div#map_phuoc_tien').append('svg').attr("width", 2048).attr("height", 1075).attr("id", "main_svg")
+        let map_img = d3.select("div svg#main_svg").append('svg:image').attr("xlink:href", "/w3images/phuoctien.jpg");
+        for (var i = 0; i < data.length; i++) {
+            var d = data[i];
+            d3.select("svg#main_svg")
+                .append("polygon")
+                .attr("points", function () { return d.points; })
+                .attr("fill", function () { return d.fill; })
+                .attr("opacity", function () { return d.opacity; })
+        }
+
+    }
+    $scope.click_info = () => {
+        var circleData = [{ "x": "050", "y": "050", "r": "30", "color": "yellow", "fruit": "banana" },
+        { "x": "100", "y": "100", "r": "30", "color": "purple", "fruit": "grape" },
+        { "x": "150", "y": "150", "r": "30", "color": "red", "fruit": "apple" }
+        ];
+        var svg = d3.select("#map_location").append("svg");
+
+        var circles = svg.selectAll("circle").data(circleData).enter().append("circle");
+        circles.data();
+        circles
+            .attr("cx", function (d, i) { return d.x; })
+            .attr("cy", function (d, i) { return d.y; })
+            .attr("r", function (d, i) { return d.r; })
+            .style("fill", function (d, i) { return d.color; });
+        d3.selectAll("circle")
+            .on("mouseover", function (d, i) { alert(d.fruit); });
+        d3.selectAll("circle")
+            .on("mouseout", function (d, i) { alert("is tasty!"); });
     }
 }

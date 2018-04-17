@@ -3,30 +3,6 @@ var polygon_ctrl = function ($scope, $http) {
     /* changing title */
     let header = d3.select("header#header_title.w3-container");
     header.append("h1").text("Shapping on map");
-
-    // var himlam_map_div = d3.select("div#himlam_map_svg");
-    // let svg_himlam = himlam_map_div.append("svg");
-    // let json_svg = { "width": 811, "height": 674, "version": "1.1", "xmlns": "http://www.w3.org/2000/svg", "xmlns": "http://www.w3.org/1999/xlink" };
-    // svg_himlam.attr(json_svg);
-    // let img_himlam = svg_himlam.enter().append("image");
-
-    // var himlam_map_rect = svg_himlam.node().getBoundingClientRect();
-    // var width = himlam_map_rect.width;
-    // var height = himlam_map_rect.height;
-    // let json_img_himlam = { "xlink:href": "/w3images/himlam_map.JPG", "height": height, "width": width };
-    // img_himlam.attr(json_img_himlam);
-    /* ================================ */
-
-    var himlam_map_div = d3.select('div#himlam_map_svg').enter().append('svg').attr("width", 300).attr("height", 300).attr("border", '1px solid #ccc');
-    var himlam_map_img = himlam_map_div.append('svg:image').attr('xlink:href', '/w3images/himlam_map.JPG').attr("x", 0).attr("y", 0).attr("width", 811).attr("height", 674);
-    // var lineX_img = d3
-    //   .scaleLog()
-    //   .domain([0, 811])
-    //   .range([0, 811]);
-    // var lineY_img = d3
-    //   .scaleLinear()
-    //   .domain([0, 674])
-    //   .range([674, 0]);
     var data_set = [
       {
         id: "1",
@@ -67,7 +43,7 @@ var polygon_ctrl = function ($scope, $http) {
         opacity: "0.3",
         stroke_width: "1",
         stoke: "red",
-        points: "249.29647, 39.19352        425.34604, 52.04385        428.84022, 55.77402        429.45994, 80.25261        426.36138, 84.90045        253.46192, 74.05550        249.12395, 69.40767        249.12395, 43.37979        "
+        points: "249.29647, 39.19352        425.34604, 52.04385 428.84022, 55.77402 429.45994, 80.25261        426.36138, 84.90045        253.46192, 74.05550        249.12395, 69.40767        249.12395, 43.37979        "
       },
       {
         name: "khu E",
@@ -75,19 +51,17 @@ var polygon_ctrl = function ($scope, $http) {
         opacity: "0.3",
         stroke_width: "1",
         stoke: "red",
-        points: "196.76, 210.08        233.32, 215.35        248.19, 390.11        216.28, 401.88        "
+        points: "196.76, 210.08 233.32, 215.35 248.19, 390.11 216.28, 401.88 "
       }
     ];
-    // for (var i = 0; i < data_set.length; i++) {
-      // var d = data_set[i];
-      // d.id = Number(i) + 1;
-      himlam_map_img
+    for (var i = 0; i < data_set.length; i++) {
+      var d = data_set[i];
+      d.id = Number(i) + 1;
+      d3.select("svg")
         .append("polygon")
         .attr("points", function () { return d.points; })
         .attr("fill", function () { return d.fill; })
         .attr("opacity", function () { return d.opacity; })
-      // .attr("stroke-width", function ( ) { return d.stroke_width; })
-      // .attr("stoke", function ( ) { return d.stoke; }) 
-    // }
+    }
   })
 };
