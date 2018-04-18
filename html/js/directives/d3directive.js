@@ -26,3 +26,43 @@ var page_content_directive = () => {
         controller: ["$scope", page_content_ctrl]
     };
 }
+var svgkey_directive = ['$compile', function ($compile) {
+    return {
+        restrict: 'A',
+        templateUrl: 'images/keyboard.svg',
+        link: svgKey_ctrl
+    }
+}]
+var mykey_directive = ['$compile', function ($compile) {
+    return {
+        restrict: 'A',
+        scope: true,
+        link: mykeyCtrl
+    }
+}]
+var myDirective = function ($compile) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attr) {
+            let svg = d3.select(element[0])
+                .append('svg');
+            svg.append('text')
+                .text('CLICK ME')
+                .attr('y', '30')
+                .attr('cursor', 'pointer')
+                .attr('ng-click', 'showAlert()');
+            $compile(svg.node())(scope);
+            // element[0].children[0].replaceWith(compiledSvg[0]);
+            scope.showAlert = function () {
+                alert("vaoday");
+            };
+            //Add event listener for 'click' event
+            // element[0].children[0].on('click', function (event) {
+            //     //Update DOM.      
+            //     element[0].children[0].css({
+            //         color: 'green'
+            //     });
+            // });
+        }
+    }
+}

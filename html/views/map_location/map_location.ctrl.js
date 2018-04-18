@@ -27,10 +27,10 @@ var map_location_ctrl = function ($scope, map_location_service) {
     };
     let data = [
         {
-            id: "DO114", name: "DO114", fill: "green", opacity: "0.3", points: "443.90148, 226.99507 493.50411, 219.42857 506.11494, 226.99507 510.31856, 244.65025 442.22003, 255.57964"
+            id: "DO114", name: "DO114", fill: "green", opacity: "0.5", points: "443.90148, 226.99507 493.50411, 219.42857 506.11494, 226.99507 510.31856, 244.65025 442.22003, 255.57964"
         },
         {
-            id: "DO101", name: "DO101", fill: "green", opacity: "0.3", points: "431.19542, 451.26970 456.08752, 449.66376 461.70832, 499.44796 436.81622, 502.65984"
+            id: "DO101", name: "DO101", fill: "green", opacity: "0.5", points: "431.19542, 451.26970 456.08752, 449.66376 461.70832, 499.44796 436.81622, 502.65984"
         }
     ];
     var w = window.innerWidth,
@@ -104,13 +104,14 @@ var map_location_ctrl = function ($scope, map_location_service) {
             var d = data[i];
             d3.select("svg#main_svg")
                 .append("polygon")
+                .attr("ng-click", "counting()").attr("ng-init", "count = 0").attr("ng-model", "count")
                 .attr("points", function () { return d.points; })
                 .attr("fill", function () { return d.fill; })
                 .attr("opacity", function () { return d.opacity; })
         }
 
     }
-    $scope.click_info = () => {
+    $scope.getevents = () => {
         var circleData = [{ "x": "050", "y": "050", "r": "30", "color": "yellow", "fruit": "banana" },
         { "x": "100", "y": "100", "r": "30", "color": "purple", "fruit": "grape" },
         { "x": "150", "y": "150", "r": "30", "color": "red", "fruit": "apple" }
@@ -123,10 +124,14 @@ var map_location_ctrl = function ($scope, map_location_service) {
             .attr("cx", function (d, i) { return d.x; })
             .attr("cy", function (d, i) { return d.y; })
             .attr("r", function (d, i) { return d.r; })
+            .attr("ng-click", "couting()").attr("ng-init", "count = 0").attr("ng-model", "count")
             .style("fill", function (d, i) { return d.color; });
         d3.selectAll("circle")
             .on("mouseover", function (d, i) { alert(d.fruit); });
         d3.selectAll("circle")
             .on("mouseout", function (d, i) { alert("is tasty!"); });
+    }
+    $scope.counting = () => {
+        return $scope.count++;
     }
 }

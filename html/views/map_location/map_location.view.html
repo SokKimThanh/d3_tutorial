@@ -8,15 +8,22 @@
         <button class="btn btn-primary" ng-click="add(data)">Add</button>
         <button class="btn btn-primary" ng-click="draw()">Draw</button>
         <button class="btn btn-primary" ng-click="export()">Export</button>
-        <button class="btn btn-primary" ng-click="click_info()">test</button>
+        <button class="btn btn-primary" ng-click="getevents()">Events</button>
     </div>
     <div id="map_location" class="w3-container form-group">
         <p>D3 Tutorials </p>
+
+        count: {{count}}
     </div>
     <div id="map_phuoc_tien">
         count: {{count}}
         <svg width="100" height="100">
-            <circle ng-click="count=count+1" ng-init="count=0" cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+            <circle ng-click="counting()" ng-init="count = 0" ng-model="count" cx="50" cy="50" r="40" stroke="green" stroke-width="4"
+                fill="yellow" />
+        </svg>
+        <svg id="svg_phuoctien">
+
         </svg>
     </div>
+    
 </div>
