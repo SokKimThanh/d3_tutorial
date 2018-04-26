@@ -19,6 +19,9 @@ var configuration = function ($routeProvider) {
     .when("/map_location", {
       templateUrl: "views/map_location/map_location.view.html",
       controller: "map_location_ctrl"
+    }).when("/trac_nghiem_tinh_cach", {
+      templateUrl: "views/tracnghiemtinhcach/tntc.view.html",
+      controller: "trac_nghiem_tinh_cach_ctrl"
     }).when("/dimple", {
       templateUrl: "views/dimple/dimple.view.html",
       controller: "dimple_ctrl"
