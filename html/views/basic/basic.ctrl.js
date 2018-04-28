@@ -1,8 +1,10 @@
-var basic_ctrl = function($scope, d3service) {
+var basic_ctrl = function($scope, d3service,$timeout) {
   //Make an SVG Container
   // var auto_link = "https://pms-dev.wahsis.net";
   // d3service.get_content_title(auto_link);
-
+  $timeout(function () {
+    $scope.is_loading = true;
+  }, 10000)
   var div_d3_tut = d3.selectAll("div.w3-container").select("div#d3_tut");
   div_d3_tut.style("background-color", "#fff");
   var div_d3_ctrl = d3.selectAll("div.w3-container").select("div#d3_ctrl");

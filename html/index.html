@@ -13,17 +13,29 @@
     <link rel="stylesheet" href="bower_components/font-awesome/web-fonts-with-css/css/fontawesome.min.css">
     <link rel="stylesheet" href="css/templatew3.css">
     <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="bower_components/SpinKit/css/spinkit.css">
+    <link rel="stylesheet" href="./bower_components/iCheck/skins/all.css">
+    <link rel="stylesheet" href="./bower_components/google-material-color/dist/palette.css">
     <title>D3 tutorial</title>
+
 </head>
 
-<body class="w3-light-grey">
-    <top-container></top-container>
-    <sidebar-menu></sidebar-menu>
-
-
-    <div ng-view></div>
-
+<body class="w3-light-grey" ng-controller="page_content_ctrl">
+    <div class="spiner-example" ng-hide="is_loading">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <div ng-show="is_loading">
+        <top-container></top-container>
+        <sidebar-menu></sidebar-menu>
+        <div ng-view></div>
+    </div>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/iCheck/icheck.min.js"></script>
+    <script src="bower_components/google-material-color/dist/palette.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/d3/d3.js"></script>
     <script src="js/dimple/dimple.v2.3.0.min.js"></script>

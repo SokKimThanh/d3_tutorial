@@ -646,4 +646,5 @@ var trac_nghiem_tinh_cach_ctrl = function ($scope, d3service) {
   /* tao function luu thanh array */
   /* kiem tra ho ten truoc khi luu */
   /* tao function xem ket qua trac nghiem */
+   
 };

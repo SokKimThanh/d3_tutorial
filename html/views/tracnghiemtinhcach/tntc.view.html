@@ -7,7 +7,31 @@
                 <i class="fa fa-dashboard"></i> Trắc nghiệm tính cách</b>
         </h5>
     </header>
-    <div class="w3-container" id="tracnghiemtinhcach" style="background-color:black; color:white">
-        
+    <div class="w3-container" id="tracnghiemtinhcach">
+
+        <input type="checkbox" text="fuckin wow shit!">
+        <input type="checkbox" checked>
+        <input type="radio" name="iCheck">
+        <input type="radio" name="iCheck" checked>
+
     </div>
+    <div class="palette-Light-Blue-700-Secondary bg">
+        The background is Light Blue The text is White
+    </div>
+
+    <div class="palette-Light-Blue-700 text">
+        The text is Light Blue
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-pink',
+                radioClass: 'iradio_polaris',
+                increaseArea: '-10%' // optional
+            });
+        });
+        document.getElementById('my-div')
+            .style['background-color'] = palette.get('Light Blue', '700')
+                .style['color'] = palette.getText('Light Blue', '700', 'Secondary');
+    </script>
 </div>
