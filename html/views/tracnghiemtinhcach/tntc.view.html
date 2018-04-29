@@ -4,34 +4,112 @@
     <header class="w3-container" style="padding-top:22px">
         <h5 class="text-capitalize">
             <b>
-                <i class="fa fa-dashboard"></i> Trắc nghiệm tính cách</b>
+                <i class="fa fa-dashboard"></i> Trắc nghiệm tính cách để biết nghề nghiệp phù hợp với bản thân</b>
         </h5>
+
     </header>
-    <div class="w3-container" id="tracnghiemtinhcach">
 
-        <input type="checkbox" text="fuckin wow shit!">
-        <input type="checkbox" checked>
-        <input type="radio" name="iCheck">
-        <input type="radio" name="iCheck" checked>
-
+    <div id="body" class="w3-container">
+        <div>
+            <div id="container">
+                <div class="spiner">
+                    <div class="sk-three-bounce">
+                        <div class="sk-child sk-bounce1"></div>
+                        <div class="sk-child sk-bounce2"></div>
+                        <div class="sk-child sk-bounce3"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-lg" data-ng-click="vebieudo()">
+                Trắc nghiệm tính cách
+            </button>
+            <button class="btn btn-primary btn-lg" data-ng-click="xemnghephuhop()">
+                Xem nghề phù hợp
+            </button>
+        </div>
+        <div class="table-responsive">
+            <div class="spiner" ng-hide="duochienthi">
+                <div class="sk-three-bounce">
+                    <div class="sk-child sk-bounce1"></div>
+                    <div class="sk-child sk-bounce2"></div>
+                    <div class="sk-child sk-bounce3"></div>
+                </div>
+            </div>
+            <table class="table table-hover table-responsive" ng-show="duochienthi">
+                <thead>
+                    <tr>
+                        <th>code</th>
+                        <th>name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="nghenghiep in danhsachnghenghiep.list">
+                        <td class="bg-primary">
+                            <h5 class="text-white">{{danhsachnghenghiep.code}}</h5>
+                        </td>
+                        <td class="bg-warning">
+                            <h4 class="text-danger">{{nghenghiep.name}} </h4>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <table id="question" class="table table-responsive table-bordered">
+            <tr>
+                <th>Stt</th>
+                <th>Code</th>
+                <th>value</th>
+                <th class="text-center">Total</th>
+            </tr>
+            <tr ng-repeat="ar19 in danhsach_cauhoi">
+                <td class="text-success">
+                    <h1>{{$index +1}}</h1>
+                </td>
+                <th>
+                    <h1>{{ar19.code}}</h1>
+                </th>
+                <td>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>number</th>
+                            <th>question</th>
+                            <th>selection</th>
+                            <th>score</th>
+                        </tr>
+                        <tbody ng-repeat="o in ar19.value">
+                            <tr id="conga">
+                                <td>{{o.number}}</td>
+                                <td style="font-size:15pt;width:60%">{{o.question}}</td>
+                                <td style="width:30%">
+                                    <select class="form-control" ng-class="{selection:true}" ng-change="tinhtong(result)" ng-model="result" ng-options="obj.value as obj.name  for obj in danh_sach_giatri_cau_tra_loi"
+                                        required="true">
+                                        <option value="" disabled>Tất cả</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    {{result}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>stt</th>
+                            <th>result</th>
+                        </tr>
+                        <tr ng-repeat="e in newarr_tongdiem">
+                            <td class="text-success">
+                                <h3>{{$index + 1}}</h3>
+                            </td>
+                            <td class="text-primary">
+                                <h3>{{e.value}}</h3>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </div>
-    <div class="palette-Light-Blue-700-Secondary bg">
-        The background is Light Blue The text is White
-    </div>
-
-    <div class="palette-Light-Blue-700 text">
-        The text is Light Blue
-    </div>
-    <script>
-        $(document).ready(function () {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-pink',
-                radioClass: 'iradio_polaris',
-                increaseArea: '-10%' // optional
-            });
-        });
-        document.getElementById('my-div')
-            .style['background-color'] = palette.get('Light Blue', '700')
-                .style['color'] = palette.getText('Light Blue', '700', 'Secondary');
-    </script>
 </div>

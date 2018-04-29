@@ -23,3 +23,8 @@
     margin-left: -50px;
     margin-top: -50px;
 }
+.selection{
+  font-size: 15pt;
+  color:wheat; 
+  background-color: green;
+} 
