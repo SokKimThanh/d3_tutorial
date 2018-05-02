@@ -7,7 +7,4 @@ var port = process.env.PORT || 30;
 app.use(express.static(path.join(__dirname, 'html')));
 
 app.listen(port, () => { console.log("d3-tutorial", port) });
-/* example */
-var birds = require('./database/routes/bird.js');
-app.use('/birds', birds);
 app.use("/trac_nghiem_tinh_cach",require('./database/routes/tracnghiemtinhcach/tntc.api.js'));
