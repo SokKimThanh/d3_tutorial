@@ -1,4 +1,4 @@
-var trac_nghiem_tinh_cach_ctrl = function ($scope, d3service, $timeout, $filter) {
+var trac_nghiem_tinh_cach_ctrl = function ($scope, d3service, $timeout, $filter, $http, $uibModal, $log, $document) {
   /*1: 2 10: 4 18: 3 26: 4 34: 2 42: 3 50: 2 28 - 36: 29
     2: 2 11: 3 19: 2 27: 4 35: 3 43: 4 51: 2 37 - 45: 24
     3: 4 12: 3 20: 2 28: 4 36: 2 44: 2 52: 2 46 - 54: 21
@@ -792,4 +792,44 @@ var trac_nghiem_tinh_cach_ctrl = function ($scope, d3service, $timeout, $filter)
       alert("no data")
     }
   }
+
+  $http({ method: 'GET', url: '/trac_nghiem_tinh_cach' }).then(function success(res) {
+    if (res.data.length > 0) {
+      $scope.trac_nghiem_tinh_cach_list = res.data;
+    } else {
+      alert("no data")
+    }
+  }, function error(err) {
+    alert(err)
+  });
+
+  var $ctrl = this;
+  $ctrl.items = ['item1', 'item2', 'item3'];
+
+  $ctrl.animationsEnabled = true;
+  $ctrl.open = function (size, parentSelector) {
+    var parentElem = parentSelector ?
+      angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+    var modalInstance = $uibModal.open({
+      animation: $ctrl.animationsEnabled,
+      ariaLabelledBy: 'modal-title',
+      ariaDescribedBy: 'modal-body',
+      templateUrl: 'views/tracnghiemtinhcach/tntc.edit.html',
+      controller: crud_trac_nghiem_tinh_cach_ctrl,
+      controllerAs: '$ctrl',
+      size: size,
+      appendTo: parentElem,
+      resolve: {
+        items: function () {
+          return $ctrl.items;
+        }
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $ctrl.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+  };
 };

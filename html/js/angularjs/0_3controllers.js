@@ -16,4 +16,5 @@ d3app
     .controller("map_location_ctrl", map_location_ctrl)
     .controller("dimple_ctrl", dimple_ctrl)
     .controller("trac_nghiem_tinh_cach_ctrl", trac_nghiem_tinh_cach_ctrl)
+    .controller("crud_trac_nghiem_tinh_cach_ctrl", crud_trac_nghiem_tinh_cach_ctrl)
     

@@ -1,6 +1,6 @@
 {
   "name": "d3-tutorial",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "d3 tutorial",
   "main": "server.js",
   "directories": {
@@ -13,10 +13,21 @@
   "author": "sok kim thanh",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "mysql": "^2.15.0",
     "path": "^0.12.7"
   },
   "keywords": [
     "d3"
-  ]
+  ],
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SokKimThanh/d3_tutorial.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SokKimThanh/d3_tutorial/issues"
+  },
+  "homepage": "https://github.com/SokKimThanh/d3_tutorial#readme"
 }
