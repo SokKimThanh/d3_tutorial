@@ -10,11 +10,8 @@ var db = mysql.createConnection({
     password: "123456",
     port: portmysql
 });
-
-
 db.connect();
 router.use(bodyParser.json());
-
 
 //lay danh sach  
 router.get('/', function (req, res) {
@@ -23,15 +20,10 @@ router.get('/', function (req, res) {
     });
 });
 
-
-
-
 //xoa  
 // router.delete('/delete/:id', function (req, res) {
-
 //     var id = req.params.id;
 //     var sql = "delete from question where id = '" + id + "'";
-
 //     db.query(sql, function (err, rows, fields) {
 //         if (err) {
 //             res.json(0);
@@ -40,11 +32,7 @@ router.get('/', function (req, res) {
 //             res.json(rows);
 //         }
 //     });
-
 // });
-
-
-
 
 //them  
 let decode_url = "%3Fcm%3Dadd%26dt%3D%7Btrac_nghiem_tinh_cach%3A%7Bcode%3Acode%2C%20number%3Anumber%2Cquestion%3Aquestion%2Cstatus%3Astatus%7D%7D"
@@ -56,8 +44,6 @@ router.post(decode_url, function (req, res) {
         if (err) { db.end(); throw err; } else { res.json(rows); }
     });
 });
-
-
 
 //sua  
 // router.put('/edit/:id', function (req, res) {
