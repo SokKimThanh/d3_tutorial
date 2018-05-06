@@ -2,97 +2,112 @@
 <html lang="en" ng-app="d3_app">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" type="image/png" href="latice.png" />
-    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
-    <!-- <link rel="stylesheet" href="css/w3.css"> -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="css/css.css"> -->
-    <link rel="stylesheet" href="bower_components/font-awesome/web-fonts-with-css/css/fontawesome.min.css">
-    <!-- <link rel="stylesheet" href="css/templatew3.css"> -->
-    <!-- <link rel="stylesheet" href="css/mystyle.css"> -->
-    <link rel="stylesheet" href="bower_components/SpinKit/css/spinkit.css">
-    <!-- <link rel="stylesheet" href="./bower_components/iCheck/skins/all.css"> -->
-    <!-- <link rel="stylesheet" href="./bower_components/google-material-color/dist/palette.css"> -->
-    <title>D3 tutorial</title>
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" type="image/png" href="latice.png" />
+  <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+  <title>D3 tutorial</title>
+  <!-- Bootstrap core CSS-->
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="bower_components/font-awesome/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="bower_components/datatables/media/css/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="bower_components/SpinKit/css/spinkit.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="css/css.css" rel="stylesheet">
 </head>
 
-<body class="w3-light-grey">
-     
-    <div>
-        <top-container></top-container>
-        <sidebar-menu></sidebar-menu>
-        <div ng-view></div>
+<body class="fixed-nav sticky-footer bg-light" id="page_top">
+  <sidebar-menu></sidebar-menu>
+  <div class="content-wrapper">
+    <div ng-view ng-controller="page_content_ctrl">
+      <div class="spinner" ng-hide="is_loading">
+        <div class="sk-three-bounce">
+          <div class="sk-child sk-bounce1"></div>
+          <div class="sk-child sk-bounce2"></div>
+          <div class="sk-child sk-bounce3"></div>
+        </div>
+      </div>
     </div>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/iCheck/icheck.min.js"></script>
-    <script src="bower_components/google-material-color/dist/palette.js"></script>
-    <script src="bower_components/highcharts/highcharts.js"></script>
-    <script src="bower_components/highcharts/highcharts-more.js"></script>
-    <script src="bower_components/highcharts/modules/exporting.js"></script>
-    <script src="bower_components/d3/d3.js"></script>
-    <script src="js/dimple/dimple.v2.3.0.min.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    
-    <script src="js/angularjs/0_0app.js"></script>
-    <script src="js/angularjs/0_5utility.js"></script>
+    <footer-container></footer-container>
+  </div>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/datatables/media/js/jquery.dataTables.js"></script>
+  <script src="bower_components/datatables/media/js/dataTables.bootstrap4.js"></script>
+  <script src="bower_components/iCheck/icheck.min.js"></script>
+  <script src="bower_components/google-material-color/dist/palette.js"></script>
+  <script src="bower_components/highcharts/highcharts.js"></script>
+  <script src="bower_components/highcharts/highcharts-more.js"></script>
+  <script src="bower_components/highcharts/modules/exporting.js"></script>
+  <script src="bower_components/d3/d3.js"></script>
+  <script src="js/dimple/dimple.v2.3.0.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>.
+  <script src="bower_components/ngSmoothScroll/lib/angular-smooth-scroll.js"></script>
+  <script src="js/angularjs/0_0app.js"></script>
+  <script src="js/angularjs/0_5utility.js"></script>
 
-    <script src="js/d3js/1Select_DOM_Elements_using_D3.js"></script>
-    <script src="js/d3js/2DOM_Manipulation_using_D3.js"></script>
-    <script src="js/d3js/3Method_Chaining_in_D3.js"></script>
-    <script src="js/d3js/4Function_of_Data.js"></script>
-    <script src="js/d3js/5Events_in_D3.js"></script>
-    <script src="js/d3js/6Animation_in_D3.js"></script>
-    <script src="js/d3js/7Data_Binding_in_D3.js"></script>
-    <script src="js/w3js/templatejs.js"></script>
+  <script src="js/d3js/1Select_DOM_Elements_using_D3.js"></script>
+  <script src="js/d3js/2DOM_Manipulation_using_D3.js"></script>
+  <script src="js/d3js/3Method_Chaining_in_D3.js"></script>
+  <script src="js/d3js/4Function_of_Data.js"></script>
+  <script src="js/d3js/5Events_in_D3.js"></script>
+  <script src="js/d3js/6Animation_in_D3.js"></script>
+  <script src="js/d3js/7Data_Binding_in_D3.js"></script>
+
+  <script src="views/d3_app/d3appctrl.js"></script>
+  <script src="views/d3_app/d3.service.js"></script>
+  <script src="views/basic/basic.ctrl.js"></script>
+  <script src="views/page_content/page_content.ctrl.js"></script>
+  <script src="views/sidebar_menu/sidebar_menu.ctrl.js"></script>
+  <script src="views/top_container/top_container.ctrl.js"></script>
+  <script src="views/footer_container/footer_container.ctrl.js"></script>
+  <script src="views/polygon/polygon.ctrl.js"></script>
+  <script src="views/circle/circle.ctrl.js"></script>
+  <script src="views/circle/circle.service.js"></script>
+  <script src="views/map_location/map_location.ctrl.js"></script>
+  <script src="views/map_location/map_location.service.js"></script>
+  <script src="views/dimple/dimple.ctrl.js"></script>
+  <script src="views/dimple/dimple.service.js"></script>
+  <script src="views/dimple/svgKeys.directive.js"></script>
+  <script src="views/dimple/mykey.directive.js"></script>
+  <script src="views/dimple/mydirective.ctrl.js"></script>
+  <script src="views/tracnghiemtinhcach/tntc.ctrl.js"></script>
+  <script src="views/tracnghiemtinhcach/tntc.crud.js"></script>
+  <script src="views/ModalDemoCtrl/ModalDemoCtrl.js"></script>
+
+  <script src="js/directives/d3directive.js"></script>
+  <script src="js/configs/configuration.js"></script>
+
+  <script src="js/angularjs/0_1directives.js"></script>
+  <script src="js/angularjs/0_2factories.js"></script>
+  <script src="js/angularjs/0_3controllers.js"></script>
+  <script src="js/angularjs/0_4config.js"></script>
+
+  <script src="js/firebase/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDtwhuBwXBXYlIlYR3cMJCRdf2T1EDBeQo",
+      authDomain: "d3tracnghiemtinhcach.firebaseapp.com",
+      databaseURL: "https://d3tracnghiemtinhcach.firebaseio.com",
+      projectId: "d3tracnghiemtinhcach",
+      storageBucket: "d3tracnghiemtinhcach.appspot.com",
+      messagingSenderId: "297439138232"
+    };
+    firebase.initializeApp(config);
+  </script>
 
 
-    <script src="views/d3_app/d3appctrl.js"></script>
-    <script src="views/d3_app/d3.service.js"></script>
-    <script src="views/basic/basic.ctrl.js"></script>
-    <script src="views/page_content/page_content.ctrl.js"></script>
-    <script src="views/sidebar_menu/sidebar_menu.ctrl.js"></script>
-    <script src="views/top_container/top_container.ctrl.js"></script>
-    <script src="views/polygon/polygon.ctrl.js"></script>
-    <script src="views/circle/circle.ctrl.js"></script>
-    <script src="views/circle/circle.service.js"></script>
-    <script src="views/map_location/map_location.ctrl.js"></script>
-    <script src="views/map_location/map_location.service.js"></script>
-    <script src="views/dimple/dimple.ctrl.js"></script>
-    <script src="views/dimple/dimple.service.js"></script>
-    <script src="views/dimple/svgKeys.directive.js"></script>
-    <script src="views/dimple/mykey.directive.js"></script>
-    <script src="views/dimple/mydirective.ctrl.js"></script>
-    <script src="views/tracnghiemtinhcach/tntc.ctrl.js"></script>
-    <script src="views/tracnghiemtinhcach/tntc.crud.js"></script>
-
-    <script src="js/directives/d3directive.js"></script>
-    <script src="js/configs/configuration.js"></script>
-
-    <script src="js/angularjs/0_1directives.js"></script>
-    <script src="js/angularjs/0_2factories.js"></script>
-    <script src="js/angularjs/0_3controllers.js"></script>
-    <script src="js/angularjs/0_4config.js"></script>
-
-    <script src="js/firebase/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDtwhuBwXBXYlIlYR3cMJCRdf2T1EDBeQo",
-            authDomain: "d3tracnghiemtinhcach.firebaseapp.com",
-            databaseURL: "https://d3tracnghiemtinhcach.firebaseio.com",
-            projectId: "d3tracnghiemtinhcach",
-            storageBucket: "d3tracnghiemtinhcach.appspot.com",
-            messagingSenderId: "297439138232"
-        };
-        firebase.initializeApp(config);
-    </script>
 </body>
 
 </html>

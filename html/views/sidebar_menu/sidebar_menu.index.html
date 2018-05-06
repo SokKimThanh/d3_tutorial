@@ -1,56 +1,21 @@
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar">
-  <br>
-  <div class="w3-container w3-row">
-    <div class="w3-col s4">
-      <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
-    </div>
-    <div class="w3-col s8 w3-bar">
-      <span>Welcome,
-        <strong>Mike</strong>
-      </span>
-      <br>
-      <a href="#" class="w3-bar-item w3-button">
-        <i class="fa fa-envelope" aria-hidden='true'></i>
-      </a>
-      <a href="#" class="w3-bar-item w3-button">
-        <i class="fa fa-user"></i>
-      </a>
-      <a href="#" class="w3-bar-item w3-button">
-        <i class="fa fa-cog"></i>
-      </a>
-    </div>
-  </div>
-  <hr>
-  <div class="w3-container">
-    <h5>Dashboard</h5>
-  </div>
-  <div class="w3-bar-block text-capitalize">
-    <!-- <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu">
-        <i class="fa fa-remove"></i>  Close Menu</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding w3-blue">
-        <i class="fa fa-users"></i>  Overview</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding">
-        <i class="fa fa-eye"></i>  Views</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding">
-        <i class="fa fa-users"></i>  Traffic</a> -->
-    <a href="/#!/basic" class="w3-bar-item w3-button w3-padding">
-      <i class="fa fa-bullseye"></i>  Basic</a>
-    <a href="/#!/polygon" class="w3-bar-item w3-button w3-padding">
-      <i class="fa fa-bell"></i>  polygon</a>
-    <a href="/#!/circle" class="w3-bar-item w3-button w3-padding">
-      <i class="fa fa-bell"></i>  cirlcle</a>
-    <a href="/#!/map_location" class="w3-bar-item w3-button w3-padding">
-      <i class="fa fa-bank"></i>  Map location</a>
-    <a href="/#!/dimple" class="w3-bar-item w3-button w3-padding">
-      <i class="fa fa-history"></i>  Dimple</a>
-    <a href="/#!/trac_nghiem_tinh_cach" class="w3-bar-item w3-button w3-padding">
-      <i class="fa fa-cog"></i>  Trắc nghiệm tính cách</a>
-    <br>
-    <br>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="mainNav" ng-controller="sidebar_menu_ctrl">
+  <a href="/#!/" class="navbar-brand">
+    <img src="w3images\d3.svg" style="width: 55px" alt="d3 logo">
+  </a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="{{x.title}}" ng-repeat="x in menu">
+        <a class="nav-link" href="{{x.href}}">
+          <i class="{{x.class}}"></i>
+          <span class="nav-link-text">{{x.span}}</span>
+        </a>
+      </li>
+    </ul>
+    <!-- logo + thu gon nav bar + smoth scroll-->
+    <d3-app></d3-app>
   </div>
 </nav>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu"
-  id="myOverlay"></div>

@@ -12,6 +12,13 @@ var top_container_directive = () => {
         controller: ["$scope", top_container_ctrl]
     };
 }
+var footer_container_directive = () => {
+    return {
+        restrict: "EA",
+        templateUrl: "views/footer_container/footer_container.view.html",
+        controller: ["$scope", footer_container_ctrl]
+    };
+}
 var sidebar_menu_directive = () => {
     return {
         restrict: "E",

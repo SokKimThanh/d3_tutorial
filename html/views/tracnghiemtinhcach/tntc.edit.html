@@ -1,15 +1,47 @@
-<div class="modal-header">
-		<h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+<div class="inmodal">
+	<div class="modal-header">
+		<h3 class="modal-title" id="modal-title">Tính cách và nghề nghiệp</h3>
 	</div>
 	<div class="modal-body" id="modal-body">
-		<ul>
-			<li ng-repeat="item in $ctrl.items">
-				<a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
-			</li>
-		</ul>
-		Selected: <b>{{ $ctrl.selected.item }}</b>
+		<div class="row">
+			<div class="col-xs-12 col-md-12 col-lg-12">
+				<h4>Tính cách</h4>
+				<div class="spiner" ng-hide="duochienthi">
+					<div class="sk-three-bounce">
+						<div class="sk-child sk-bounce1"></div>
+						<div class="sk-child sk-bounce2"></div>
+						<div class="sk-child sk-bounce3"></div>
+					</div>
+				</div>
+				<div id="div_chart">
+				</div>
+			</div>
+		</div>
+		<div class="table-responsive">
+			<h4>Nghề nghiệp</h4>
+			<table class="table table-hover table-responsive" ng-show="duochienthi" id="tablenghenghiep">
+				<thead>
+					<tr>
+						<th>code</th>
+						<th>name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="nghenghiep in danhsachnghenghiep.list">
+						<td class="bg-primary">
+							<h5 class="text-white">{{danhsachnghenghiep.code}}</h5>
+						</td>
+						<td class="bg-warning">
+							<h4 class="text-danger">{{nghenghiep.name}} </h4>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 	<div class="modal-footer">
-		<button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
-		<button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+		<!-- <button class="btn btn-primary" type="button" ng-click="xemtinhcach()">Biểu hiện tính cách</button> -->
+		<button class="btn btn-primary" type="button" ng-click="xemnghenghiep()">Xem nghề phù hợp</button>
+		<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
 	</div>
+</div>

@@ -1,142 +1,81 @@
-<div class="w3-main" style="margin-left:300px;margin-top:43px;" ng-controller="trac_nghiem_tinh_cach_ctrl as $ctrl">
-    <header class="w3-container" style="padding-top:22px">
+<div class="container-fluid" ng-controller="trac_nghiem_tinh_cach_ctrl as $ctrl">
+    <header class="">
         <h5 class="text-capitalize">
-            <b>
-                <i class="fa fa-dashboard"></i> Trắc nghiệm tính cách để biết nghề nghiệp phù hợp với bản thân</b>
+            <i class="fa fa-dashboard"></i>
+            <span>Trắc nghiệm tính cách để biết nghề nghiệp phù hợp với bản thân</span>
         </h5>
-
     </header>
-    <div id="api" class="w3-container">
-        <h1> Danh sách câu hỏi và lựa chọn </h1>
-        <button type="button" class="btn btn-primary btn-lg" ng-click="$ctrl.open()" data-toggle="modal" data-target="#report">Launch modal</button>
 
-        <div class="modal-parent">
-        </div>
-
-        <table class="table table-hover">
-            <thead>
-                <tr class="text-capitalize">
-                    <th>STT </th>
-                    <th>Code </th>
-                    <th>Number </th>
-                    <th>Question </th>
-                    <th>Status </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="x in trac_nghiem_tinh_cach_list">
-                    <td>{{$index + 1}} </td>
-                    <td>{{x.code}} </td>
-                    <td>{{x.number}} </td>
-                    <td>{{x.question}} </td>
-                    <td>{{x.status}} </td>
-                </tr>
-            </tbody>
-        </table>
-
-    </div>
-    <div id="body" class="w3-container">
-        <div>
-            <div id="container">
-                <div class="spiner">
-                    <div class="sk-three-bounce">
-                        <div class="sk-child sk-bounce1"></div>
-                        <div class="sk-child sk-bounce2"></div>
-                        <div class="sk-child sk-bounce3"></div>
+    <div id="body">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <div id="spy" class="scroll-spy">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>stt</th>
+                                <th>result</th>
+                            </tr>
+                            <tr ng-repeat="e in newarr_tongdiem">
+                                <td class="text-success">
+                                    <a class="nav nav-pills nav-stacked">
+                                        <h3>{{$index + 1}}</h3>
+                                    </a>
+                                </td>
+                                <td class="text-primary">
+                                    <h3>{{e.value}}</h3>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="opacity: 1;">
+                            <button class="btn btn-warning" data-ng-click="xacdinhtinhcach()">
+                                Xác định tính cách
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary btn-lg" data-ng-click="vebieudo()">
-                Trắc nghiệm tính cách
-            </button>
-            <button class="btn btn-primary btn-lg" data-ng-click="xemnghephuhop()">
-                Xem nghề phù hợp
-            </button>
         </div>
-        <div class="table-responsive">
-            <div class="spiner" ng-hide="duochienthi">
-                <div class="sk-three-bounce">
-                    <div class="sk-child sk-bounce1"></div>
-                    <div class="sk-child sk-bounce2"></div>
-                    <div class="sk-child sk-bounce3"></div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <div class="table-responsive">
+                    <table id="question" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <tr>
+                            <th>Stt</th>
+                            <th>value</th>
+                        </tr>
+                        <tr ng-repeat="ar19 in danhsach_cauhoi">
+                            <td class="text-success">
+                                <h1>{{$index +1}}</h1>
+                            </td>
+                            <td>
+                                <table class="table table-bordered" id="section{{$index +1}}" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th style="white-space: nowrap;width: 1%">number</th>
+                                            <th>question</th>
+
+                                            <th style="white-space: nowrap;width: 5%">score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="o in ar19.value">
+                                        <tr id="conga">
+                                            <td class="text-align-center" style="white-space: nowrap;width: 1%">{{o.number}}</td>
+                                            <td style="font-size: 18pt">{{o.question}}
+                                                <select id="elem" class="form-control" ng-class="{selection:true}" ng-change="tinhtong(result)" ng-model="result" ng-options="obj.value as obj.name  for obj in danh_sach_giatri_cau_tra_loi"
+                                                    required="true">
+                                                    <option value="" disabled>-1</option>
+                                                </select>
+                                            </td>
+                                            <td class="text-center" style="white-space: nowrap;width: 5%"> {{result}} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-            <table class="table table-hover table-responsive" ng-show="duochienthi">
-                <thead>
-                    <tr>
-                        <th>code</th>
-                        <th>name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="nghenghiep in danhsachnghenghiep.list">
-                        <td class="bg-primary">
-                            <h5 class="text-white">{{danhsachnghenghiep.code}}</h5>
-                        </td>
-                        <td class="bg-warning">
-                            <h4 class="text-danger">{{nghenghiep.name}} </h4>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
-        <table id="question" class="table table-responsive table-bordered">
-            <tr>
-                <th>Stt</th>
-                <th>Code</th>
-                <th>value</th>
-                <th class="text-center">Total</th>
-            </tr>
-            <tr ng-repeat="ar19 in danhsach_cauhoi">
-                <td class="text-success">
-                    <h1>{{$index +1}}</h1>
-                </td>
-                <th>
-                    <h1>{{ar19.code}}</h1>
-                </th>
-                <td>
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>number</th>
-                            <th>question</th>
-                            <th>selection</th>
-                            <th>score</th>
-                        </tr>
-                        <tbody ng-repeat="o in ar19.value">
-                            <tr id="conga">
-                                <td>{{o.number}}</td>
-                                <td style="font-size:15pt;width:60%">{{o.question}}</td>
-                                <td style="width:30%">
-                                    <select class="form-control" ng-class="{selection:true}" ng-change="tinhtong(result)" ng-model="result" ng-options="obj.value as obj.name  for obj in danh_sach_giatri_cau_tra_loi"
-                                        required="true">
-                                        <option value="" disabled>Tất cả</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    {{result}}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-                <td>
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>stt</th>
-                            <th>result</th>
-                        </tr>
-                        <tr ng-repeat="e in newarr_tongdiem">
-                            <td class="text-success">
-                                <h3>{{$index + 1}}</h3>
-                            </td>
-                            <td class="text-primary">
-                                <h3>{{e.value}}</h3>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-
     </div>
 </div>

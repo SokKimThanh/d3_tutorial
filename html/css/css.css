@@ -25,6 +25,28 @@
 }
 .selection{
   font-size: 15pt;
-  color:wheat; 
-  background-color: green;
+  /* color:wheat;  */
+  /* background-color: green; */
 } 
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+.scroll-spy {
+  position: fixed;
+  z-index: 1029;
+  background-color: yellow;
+  opacity: .8;
+}
+#section1 {color: #fff; background-color: #1E88E5;}
+#section2 {color: #fff; background-color: #673ab7;}
+#section3 {color: #fff; background-color: #ff9800;}
+#section4 {color: #fff; background-color: #00bcd4;}
+#section5 {color: #fff; background-color: #009688;}
+#section6 {color: #fff; background-color: #960052;}
+ 
+ 

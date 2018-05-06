@@ -28,6 +28,10 @@
     "SpinKit": "spinkit#^1.2.5",
     "google-material-color": "^1.3.1",
     "highcharts": "^6.1.0",
-    "angular-bootstrap": "^2.5.0"
+    "angular-bootstrap": "^2.5.0",
+    "ngSmoothScroll": "^2.0.0",
+    "modernizr": "^3.6.0",
+    "angular-datatables": "0.6.2",
+    "datatables": "^1.10.16"
   }
 }

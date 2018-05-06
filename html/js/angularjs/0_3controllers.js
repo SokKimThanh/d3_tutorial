@@ -10,6 +10,7 @@ d3app
     .controller("sidebar_menu_ctrl", sidebar_menu_ctrl)
     .controller("top_container_ctrl", top_container_ctrl)
     .controller("page_content_ctrl", page_content_ctrl)
+    .controller("footer_container_ctrl", footer_container_ctrl)
     .controller("basic_ctrl", basic_ctrl)
     .controller("polygon_ctrl", polygon_ctrl)
     .controller("circle_ctrl", circle_ctrl)
@@ -17,4 +18,6 @@ d3app
     .controller("dimple_ctrl", dimple_ctrl)
     .controller("trac_nghiem_tinh_cach_ctrl", trac_nghiem_tinh_cach_ctrl)
     .controller("crud_trac_nghiem_tinh_cach_ctrl", crud_trac_nghiem_tinh_cach_ctrl)
+    .controller('ModalDemoCtrl', ModalDemoCtrl)
+    .controller('ModalInstanceCtrl', ModalInstanceCtrl)
     

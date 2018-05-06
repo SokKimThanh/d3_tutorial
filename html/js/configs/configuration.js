@@ -1,4 +1,5 @@
-var configuration = function ($routeProvider) {
+var configuration = function ($routeProvider,$qProvider) {
+  $qProvider.errorOnUnhandledRejections(false);
   $routeProvider
     .when("/", {
       templateUrl: "views/page_content/page_content.index.html",
@@ -25,5 +26,8 @@ var configuration = function ($routeProvider) {
     }).when("/dimple", {
       templateUrl: "views/dimple/dimple.view.html",
       controller: "dimple_ctrl"
-    });
+    }).when("/modal", {
+      templateUrl: "views/ModalDemoCtrl/modaldemo.view.html",
+      controller: "ModalDemoCtrl"
+    })
 };
