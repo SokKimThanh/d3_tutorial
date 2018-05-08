@@ -1,4 +1,4 @@
-<div ng-controller="ModalDemoCtrl as $ctrl" class="modal-demo container-fluid">
+<div class="modal-demo container-fluid" ng-controller="ModalDemoCtrl as $ctrl" >
     <button type="button" class="btn btn-default" ng-click="$ctrl.open()">Open me!</button>
     <button type="button" class="btn btn-default" ng-click="$ctrl.open('lg')">Large modal</button>
     <button type="button" class="btn btn-default" ng-click="$ctrl.open('sm')">Small modal</button>
@@ -13,4 +13,6 @@
     <div ng-show="$ctrl.selected">Selection from a modal: {{ $ctrl.selected }}</div>
     <div class="modal-parent">
     </div>
+
+    <img ng-src="{{src}}" ng-click="getBulbStatus()"><span>{{title}}</span>
 </div>

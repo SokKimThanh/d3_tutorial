@@ -1,4 +1,22 @@
-let ModalDemoCtrl = function ($uibModal, $log, $document) {
+let ModalDemoCtrl = function ($scope, $uibModal, $log, $document) {
+    var url = "https://www.w3schools.com/js/"; 
+    var src_arr =[ 
+      {url:url,filename:"pic_bulbon",type:".gif", title:"Turn on the light", status:1},
+      {url:url,filename:"pic_bulboff",type:".gif", title:"Turn off the light",status:0}
+    ]
+    $scope.src = url + src_arr[1].filename+src_arr[1].type;
+    $scope.title = src_arr[1].title;
+    $scope.counting = 0;
+    $scope.getBulbStatus =()=>{
+        $scope.counting++; 
+        if($scope.counting %2===0){
+			$scope.src = url + src_arr[1].filename+src_arr[1].type;
+            $scope.title = src_arr[1].title
+        }else{
+        	$scope.src = url + src_arr[0].filename+src_arr[0].type;
+            $scope.title = src_arr[0].title
+        }
+    }
     var $ctrl = this;
     $ctrl.items = ['item1', 'item2', 'item3'];
     $ctrl.animationsEnabled = true;

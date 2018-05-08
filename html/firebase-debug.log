@@ -1,0 +1,45 @@
+[debug] [2018-05-08T07:05:27.029Z] ----------------------------------------------------------------------
+[debug] [2018-05-08T07:05:27.033Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\thanh\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-05-08T07:05:27.033Z] CLI Version:   3.18.4
+[debug] [2018-05-08T07:05:27.034Z] Platform:      win32
+[debug] [2018-05-08T07:05:27.034Z] Node Version:  v6.11.4
+[debug] [2018-05-08T07:05:27.034Z] Time:          Tue May 08 2018 14:05:27 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-05-08T07:05:27.034Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-08T07:05:27.058Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-08T07:05:27.059Z] > authorizing via signed-in user
+[debug] [2018-05-08T07:05:27.063Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/d3tracnghiemtinhcach  
+  
+ Tue May 08 2018 14:05:27 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-05-08T07:05:28.086Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-08T07:05:28.088Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/d3tracnghiemtinhcach/tokens  
+  
+ Tue May 08 2018 14:05:28 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-05-08T07:05:28.930Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-08T07:05:28.931Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/d3tracnghiemtinhcach  
+  
+ Tue May 08 2018 14:05:28 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-05-08T07:05:30.059Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\thanh\Desktop\d3_tutorial'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-05-08T07:05:52.725Z] Fetching environment
+[debug] [2018-05-08T07:05:52.742Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297439138232:getServerAppConfig  
+  
+ Tue May 08 2018 14:05:52 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-05-08T07:05:52.743Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/297439138232/clients/_:getWebAppConfig  
+  
+ Tue May 08 2018 14:05:52 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-05-08T07:05:53.434Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-08T07:05:53.436Z] Starting @google-cloud/functions-emulator
+[debug] [2018-05-08T07:05:53.694Z] <<< HTTP RESPONSE 200
+[warn] !  functions: Error from emulator. Error: Emulator crashed! Check the log file...
+[debug] [2018-05-08T07:05:54.081Z] Error: Emulator crashed! Check the log file...
+    at ChildProcess.child.on (C:\Users\thanh\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\@google-cloud\functions-emulator\src\cli\controller.js:650:24)
+    at emitTwo (events.js:106:13)
+    at ChildProcess.emit (events.js:191:7)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:219:12)
+[info] i  hosting: Serving hosting files from: html
+[info] +  hosting: Local server: http://localhost:5000
+
