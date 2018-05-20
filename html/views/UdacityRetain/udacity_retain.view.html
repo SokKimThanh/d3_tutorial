@@ -1,0 +1,23 @@
+<div class="container-fluid" ng-controller="udacity_retain_ctrl">
+    <header class="">
+        <h5 class="text-capitalize">
+            <i class="fa fa-dashboard"></i>
+            <span>Udacity Retain</span>
+        </h5>
+        <p>This is an example from
+            <a href="https://classroom.udacity.com/courses/ud989/lessons/3437288625/concepts/34279987300923">Udacity's Javascript Design Patterns course</a>
+            for how to use MV* frameworks. Clone the
+            <a href="https://github.com/udacity/ud989-retain">repo</a> 
+            and open up index.html in your browser of choice.
+        </p>
+    </header>
+    <form id="new-note-form" ng-submit="octopus.init()" class="new-note-form">
+        <input id="new-note-content" ng-model="newNoteContent" class="new-note-content">
+    </form>
+    <ul id="notes" class="notes">
+        <li class="note" ng-repeat="note in noteList">
+            <i class="text-success">{{note.dateSubmitted}}</i>
+            <h3 class="text-uppercase">{{note.content}}</h3>
+        </li>
+    </ul>
+</div>

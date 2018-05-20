@@ -20,4 +20,5 @@ d3app
     .controller("crud_trac_nghiem_tinh_cach_ctrl", crud_trac_nghiem_tinh_cach_ctrl)
     .controller('ModalDemoCtrl', ModalDemoCtrl)
     .controller('ModalInstanceCtrl', ModalInstanceCtrl)
+    .controller('udacity_retain_ctrl', udacity_retain_ctrl)
     

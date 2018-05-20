@@ -8,5 +8,6 @@ var sidebar_menu_ctrl = function ($scope) {
         { title: "dimple", href: "/#!/dimple", class: "fa fa-fw fa-link", span: "dimple" },
         { title: "Trắc nghiệm tính cách", href: "/#!/trac_nghiem_tinh_cach", class: "fa fa-fw fa-square", span: "Trắc nghiệm tính cách" },
         { title: "modal", href: "/#!/modal", class: "fa fa-fw fa-square", span: "modal" },
+        { title: "Udacity Retain", href: "/#!/udacity_retain", class: "fa fa-fw fa-square", span: "Udacity Retain" },
     ]
 }

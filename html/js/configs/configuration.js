@@ -1,23 +1,19 @@
-var configuration = function ($routeProvider,$qProvider) {
+var configuration = function ($routeProvider, $qProvider) {
   $qProvider.errorOnUnhandledRejections(false);
   $routeProvider
     .when("/", {
       templateUrl: "views/page_content/page_content.index.html",
       controller: "page_content_ctrl"
-    })
-    .when("/basic", {
+    }).when("/basic", {
       templateUrl: "views/basic/basic.view.html",
       controller: "basic_ctrl"
-    })
-    .when("/polygon", {
+    }).when("/polygon", {
       templateUrl: "views/polygon/polygon.view.html",
       controller: "polygon_ctrl"
-    })
-    .when("/circle", {
+    }).when("/circle", {
       templateUrl: "views/circle/circle.view.html",
       controller: "circle_ctrl"
-    })
-    .when("/map_location", {
+    }).when("/map_location", {
       templateUrl: "views/map_location/map_location.view.html",
       controller: "map_location_ctrl"
     }).when("/trac_nghiem_tinh_cach", {
@@ -29,5 +25,8 @@ var configuration = function ($routeProvider,$qProvider) {
     }).when("/modal", {
       templateUrl: "views/ModalDemoCtrl/modaldemo.view.html",
       controller: "ModalDemoCtrl"
+    }).when("/udacity_retain", {
+      templateUrl: "views/UdacityRetain/udacity_retain.view.html",
+      controller: "udacity_retain_ctrl" 
     })
 };
