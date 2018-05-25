@@ -21,4 +21,5 @@ d3app
     .controller('ModalDemoCtrl', ModalDemoCtrl)
     .controller('ModalInstanceCtrl', ModalInstanceCtrl)
     .controller('udacity_retain_ctrl', udacity_retain_ctrl)
+    .controller('udacity_attendance_ctrl', udacity_attendance_ctrl)
     

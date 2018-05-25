@@ -27,6 +27,9 @@ var configuration = function ($routeProvider, $qProvider) {
       controller: "ModalDemoCtrl"
     }).when("/udacity_retain", {
       templateUrl: "views/UdacityRetain/udacity_retain.view.html",
-      controller: "udacity_retain_ctrl" 
+      controller: "udacity_retain_ctrl"  
+    }).when("/udacity_attendance", {
+      templateUrl: "views/UdacityAttendance/udacity_attendance.view.html",
+      controller: "udacity_attendance_ctrl" 
     })
 };
