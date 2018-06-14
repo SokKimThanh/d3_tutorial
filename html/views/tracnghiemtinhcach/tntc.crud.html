@@ -1,0 +1,201 @@
+<script src="../assets/bootstrap-datepicker.js" type="text/javascript"></script>
+<link href="../assets/datepicker3.css" rel="stylesheet" type="text/css" />
+<style>
+    .text_a {
+        border: none !important;
+        font-weight: bold;
+        background: transparent !important;
+        padding-top: 0px !important;
+    }
+
+    .text_a:focus {
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    label {
+        margin: 0px;
+    }
+
+    .text_b {
+
+        margin-bottom: 5px !important
+    }
+
+    #frmcustomers input[type=text],
+    #frmcustomers input[type=date] {
+        margin-bottom: 10px !important;
+    }
+</style>
+<div id="language_translation">
+    <div class="page-breadcrumbs breadcrumbs-fixed">
+        <div class="row">
+            <ul class="breadcrumb col-xs-12">
+                <li>
+                    <strong>{{translation.COMPANY_PROVIDE_SERVICE_PARTNER}}</strong>
+                </li>
+            </ul>
+            <div class="col-xs-12">
+                <div class="pull-right" style="margin-right: 20px">
+                    <div style="margin-right: 20px">
+                        <button data-ng-click="create()" ng-disabled="!allow[0]" type="button" class="btn btn-default btn-xs black">
+                            <i class="glyphicon glyphicon-pencil"></i>{{translation.ADD_NEW}}</button>
+                        <button data-ng-click="edit()" ng-disabled="!allow[1]" type="button" class="btn btn-default btn-xs black">
+                            <i class="fa fa-edit"></i>{{translation.EDIT}}</button>
+                        <button data-ng-click="delete()" ng-disabled="!allow[2]" type="button" class="btn btn-default btn-xs black">
+                            <i class="fa fa-trash-o"></i>{{translation.DELETE}}</button>
+                        <!-- <button data-ng-click="print()" ng-disabled="!allow[3]" type="button" class="btn btn-default btn-xs black">
+                                                            <i class="glyphicon glyphicon-print"></i>{{translation.PRINT}}</button> -->
+                        <!-- <button ng-click="ok()" ng-disabled="!allow[0]" type="button" class="btn btn-default btn-xs black">
+                                                        <i class="fa fa-floppy-o"></i>{{translation.SAVE}}</button> -->
+                        <button ng-click="company_back()" class="btn btn-default btn-xs black">
+                            <i class="glyphicon glyphicon-arrow-left"></i>{{translation.BACK}} {{translation.LIST_COMPANY}}</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <!-- /Page Bread crumb -->
+    <div class="page-body" style="margin-top: 30px">
+        <form name="frmcustomers" class="form-horizontal ng-pristine ng-scope ng-invalid ng-invalid-required" novalidate="" method="POST"
+            enctype="multipart/form-data">
+            <div class="well with-header">
+                <div class="header bordered-pink">
+                </div>
+                <div>
+                    <div class="row row-p-m-5">
+                        <div class="col-sm-12" style="padding-left: 0px">
+                            <div class="form-group m-b-0">
+                                <div class="col-sm-4 col-md-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-xs-12 control-label">{{translation.PROVIDER_NAME}}</label>
+                                        <div class="col-md-8 col-xs-12 col-xs-12">
+                                            <div class="fg-line">
+                                                <input ng-blur="ngblurAlert(provider_name)" ng-model="provider_name" class="a" ng-disabled="stt_search" maxlength="256">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-xs-12 control-label">{{translation.EFFECTIVE_DATE}}</label>
+                                        <div class="col-md-8 col-xs-12">
+                                            <div class="fg-line">
+                                                <input ng-model="effective_date" type="text" class="a datepicker" ng-required="true" placeholder={{format_date}} id="exchange_rate"
+                                                    ng-blur="blur_exchange_date()"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-xs-12 control-label">{{translation.TO_DATE}}</label>
+                                        <div class="col-md-8 col-xs-12">
+                                            <div class="fg-line">
+                                                <input ng-model="to_date" type="text" class="a datepicker" ng-required="true" placeholder={{format_date}} id="exchange_rate1"
+                                                    ng-blur="blur_exchange_date()">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-xs-12 control-label">{{translation.PROVIDER_ADDRESS}}</label>
+                                        <div class="col-md-8 col-xs-12">
+                                            <div class="fg-line">
+                                                <input type="text" class="a" ng-disabled="a" ng-model="provider_address" ng-blur="pressEnter()">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-4 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-xs-12 control-label">{{translation.STATUS}}</label>
+                                        <div class="col-md-8 col-xs-12">
+                                            <div class="fg-line">
+                                                <select ng-model="is_active" ng-options="x.value as x.option for x in status_list" class="a" ng-disabled="stt_search">
+                                                    <option value="" >{{translation.CHOOSE_IS_ACTIVE}}</option>
+                                                </select>
+                                                 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-xs-12">
+                                    <div class="form-group  m-b-0" style="padding-top: 0;text-align: right;margin-right: 0px">
+                                        <button style="height:29px;" class="btn btn-default btn-xs red " ng-disabled="stt_search" ng-click="search()">
+                                            <i class="fa fa-search"></i>{{translation.SEARCH}}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-sm-2  " style="padding-left: 5px;padding-top: 12px; margin-bottom: 5px">
+                        <p ng-show="show_item">
+                            <strong style="color: red">No result</strong>
+                        </p>
+                    </div>
+                    <div class=" text-right " id="div_paging" style="margin-bottom: 15px;padding-top:0 ;background-color:transparent !important;padding-left: 0px">
+                        <button ng-disabled="currentPage == 1" ng-click="upload_data(4)" class="btn btn-default btn-xs black">
+                            <i class="ion-arrow-left-a"></i>
+                            {{translation.FIRST}}
+                        </button>
+                        <button ng-disabled="currentPage == 1" ng-click="upload_data(1)" class="btn btn-default btn-xs black">
+                            <i class="ion-chevron-left"></i>
+                            {{translation.PREVIOUS}}
+                        </button>
+                        {{translation.ITEM_PER_PAGE}}:
+                        <select id="page" ng-model="item_per_page" ng-change="item_per_page2()" ng-required="true" ng-options="x.value as x.text for x in item_per_page1"></select>
+                        {{translation.PAGE}}
+                        <select id="page" ng-model="currentPage" ng-change="upload_data(2)" ng-required="true" ng-options="x.val as x.test for x in list_page"></select>
+                        {{translation.TOTAL_PAGE}}: {{total_page}}
+                        <button ng-disabled="currentPage == total_page || total_page == 0" ng-click="upload_data(3)" class="btn btn-default btn-xs black">
+                            <i class="ion-chevron-right"></i>
+                            {{translation.NEXT}}
+                        </button>
+                        <button ng-disabled="currentPage == total_page || total_page == 0" ng-click="upload_data(5)" class="btn btn-default btn-xs black">
+                            <i class="ion-arrow-right-a"></i>
+                            {{translation.LAST}}
+                        </button> | {{translation.TOTAL_RESULT}}: {{total_row}}
+                    </div>
+                </div>
+                <!-- <div ui-grid="gridOptions" ui-grid-selection ui-grid-auto-resize style="min-height: 70vh"></div> -->
+                <div ui-grid="gridOptions" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize class="grid"></div>
+                <div>
+                    <div class="col-sm-2  " style="padding-left: 5px;padding-top: 12px; margin-bottom: 5px">
+                        <p ng-show="show_item">
+                            <strong style="color: red">No result</strong>
+                        </p>
+                    </div>
+                    <div class=" text-right " id="div_paging" style="margin-bottom: 15px;padding-top:0 ;background-color:transparent !important;padding-left: 0px">
+                        <button ng-disabled="currentPage == 1" ng-click="upload_data(4)" class="btn btn-default btn-xs black">
+                            <i class="ion-arrow-left-a"></i>
+                            {{translation.FIRST}}
+                        </button>
+                        <button ng-disabled="currentPage == 1" ng-click="upload_data(1)" class="btn btn-default btn-xs black">
+                            <i class="ion-chevron-left"></i>
+                            {{translation.PREVIOUS}}
+                        </button>
+                        {{translation.ITEM_PER_PAGE}}:
+                        <select id="page" ng-model="item_per_page" ng-change="item_per_page2()" ng-required="true" ng-options="x.value as x.text for x in item_per_page1"></select>
+                        {{translation.PAGE}}
+                        <select id="page" ng-model="currentPage" ng-change="upload_data(2)" ng-required="true" ng-options="x.val as x.test for x in list_page"></select>
+                        {{translation.TOTAL_PAGE}}: {{total_page}}
+                        <button ng-disabled="currentPage == total_page || total_page == 0" ng-click="upload_data(3)" class="btn btn-default btn-xs black">
+                            <i class="ion-chevron-right"></i>
+                            {{translation.NEXT}}
+                        </button>
+                        <button ng-disabled="currentPage == total_page || total_page == 0" ng-click="upload_data(5)" class="btn btn-default btn-xs black">
+                            <i class="ion-arrow-right-a"></i>
+                            {{translation.LAST}}
+                        </button> | {{translation.TOTAL_RESULT}}: {{total_row}}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

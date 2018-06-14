@@ -13,53 +13,63 @@ var db = mysql.createConnection({
 db.connect();
 router.use(bodyParser.json());
 
-//lay danh sach  
+//lay het  
 router.get('/', function (req, res) {
     db.query('select * from question', function (err, rows, fields) {
         if (err) { db.end(); throw err; } else { res.json(rows); }
     });
 });
+//lay 1  
+router.get('/:id', function (req, res) {
+    db.query('select * from question where id= ' + req.params.id, function (err, rows, fields) {
+        if (err) { db.end(); throw err; } else { res.json(rows); }
+    });
+});
 
 //xoa  
-// router.delete('/delete/:id', function (req, res) {
-//     var id = req.params.id;
-//     var sql = "delete from question where id = '" + id + "'";
-//     db.query(sql, function (err, rows, fields) {
-//         if (err) {
-//             res.json(0);
-//         }
-//         else {
-//             res.json(rows);
-//         }
-//     });
-// });
+router.delete('/delete/:id', function (req, res) {
+    var id = req.params.id;
+    var sql = "delete from question where id = '" + id + "'";
+    db.query(sql, function (err, rows, fields) {
+        if (err) {
+            res.json(0);
+        }
+        else {
+            res.json(rows);
+        }
+    });
+});
 
 //them  
-let decode_url = "%3Fcm%3Dadd%26dt%3D%7Btrac_nghiem_tinh_cach%3A%7Bcode%3Acode%2C%20number%3Anumber%2Cquestion%3Aquestion%2Cstatus%3Astatus%7D%7D"
+let decode_url = "/add/:3/"
 router.post(decode_url, function (req, res) {
-    // let code = 
-    var sql = 'insert into question(code,number,question,status) values ("' +
-        req.body.code + '","' + req.body.number + '","' + req.body.question + '",1)';
+    let code = req.body.code;
+    let number = req.body.number;
+    let question = req.body.question;
+    var sql = 'insert into question(code,number,question,status) values ("' + code + '","' + number + '","' + question + '",1)';
     db.query(sql, function (err, rows, fields) {
         if (err) { db.end(); throw err; } else { res.json(rows); }
     });
 });
 
 //sua  
-// router.put('/edit/:id', function (req, res) {
-//     var id = req.params.id;
-//     var sql = "update question set pro_code='" + req.body.pro_code + "', pro_name='" + req.body.pro_name + "', pro_description='" + req.body.pro_description + "', pro_status='" + req.body.pro_status + "' where id = '" + id + "'";
+router.put(RegExp('/cm/edit/dt/question_id/:question_id'), function (req, res) {
+    let question_id = req.params.question_id;
+    alert(question_id)
+    let code = req.body.code;
+    let number = req.body.number;
+    let question = req.body.question;
+    var sql = "update question set code='" + code + "', number='" + number + "', question='" + question + "', status='" + 1 + "' where id = '" + question_id + "'";
 
-//     db.query(sql, function (err, rows, fields) {
-//         if (err) {
-//             db.end();
-//             throw err;
-//         }
-//         else {
-//             res.json(rows);
-//         }
-//     });
-
-// });
+    db.query(sql, function (err, rows, fields) {
+        if (err) {
+            db.end();
+            throw err;
+        }
+        else {
+            res.json(rows);
+        }
+    });
+});
 
 module.exports = router;
