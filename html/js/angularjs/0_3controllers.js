@@ -23,6 +23,4 @@ d3app
     .controller('udacity_retain_ctrl', udacity_retain_ctrl)
     .controller('udacity_attendance_ctrl', udacity_attendance_ctrl)
     .controller('cung_hoang_dao_ctrl', cung_hoang_dao_ctrl)
-    .controller('d3_link_ctrl', d3_link_ctrl)
-    .controller('d3_script_ctrl', d3_script_ctrl)
-    
+

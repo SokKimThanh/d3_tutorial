@@ -3,13 +3,13 @@ var cung_hoang_dao_ctrl = function ($scope, $http, $window, $compile, $timeout) 
 
 		$http({
 			method: 'GET',
-			url: '/menu_CThoc'
+			url: '/cung_hoang_dao'
 		}).then(function successCallback(response) {
 
 			$scope.list_server = response.data;
 			loadtable();
 		}, function errorCallback(response) {
-
+			alert(response.status+": no-data of cung_hoang_dao in cm: get all data")
 		});
 	}
 	//end function refesh
@@ -30,25 +30,25 @@ var cung_hoang_dao_ctrl = function ($scope, $http, $window, $compile, $timeout) 
 			//"processing": true,
 			"deferRender": true,
 			"aaData": $scope.list_server,
-			"rowId": "pro_id",
+			"rowId": "cung_id",
 			"aoColumns": [
 				{ "data": "No", "sWidth": "5%" },
-				{ "data": "pro_id", "sWidth": "5%" },
-				{ "data": "pro_code", "sClass": "text" },
-				{ "data": "pro_name", "sClass": "text" },
-				//pro_description
+				{ "data": "cung_id", "sWidth": "5%" },
+				{ "data": "cung_code", "sClass": "text" },
+				{ "data": "cung_name", "sClass": "text" },
+				//cung_description
 				{
 					"data": null, mRender: function (data, type, row) {
-						if (data.pro_description == "undefined" || data.pro_description == null)
-							data.pro_description = "";
-						return data.pro_description;
+						if (data.cung_description == "undefined" || data.cung_description == null)
+							data.cung_description = "";
+						return data.cung_description;
 					}, "sClass": "text"
 				},
-				//pro_pro_status
+				//cung_cung_status
 				{
 					"data": null, mRender: function (data, type, row) {
 						var str = "";
-						if (data.pro_status == 0) {
+						if (data.cung_status == 0) {
 							str = "Inactive";
 						}
 						else {
@@ -60,7 +60,7 @@ var cung_hoang_dao_ctrl = function ($scope, $http, $window, $compile, $timeout) 
 				{
 					"data": null, mRender: function (data, type, row, index) {
 						return "<button class='btn btn-warning btn-xs' data-toggle='modal' data-placement='top' title='Edit' data-target='#myModalEdit' ng-click='editt(" + index.row + ")'><span class='glyphicon glyphicon-edit'></span></button>&nbsp;"
-							+ "<button class='btn btn-danger btn-xs' id=" + data.pro_id + " data-toggle='modal' data-placement='top' title='Remove'   ng-click='getremove(" + data.pro_id + ")'><span class='glyphicon glyphicon-remove'></span></button>";
+							+ "<button class='btn btn-danger btn-xs' id=" + data.cung_id + " data-toggle='modal' data-placement='top' title='Remove'   ng-click='getremove(" + data.cung_id + ")'><span class='glyphicon glyphicon-remove'></span></button>";
 					}, "sWidth": "7%"
 				}
 			],
@@ -109,7 +109,7 @@ var cung_hoang_dao_ctrl = function ($scope, $http, $window, $compile, $timeout) 
 		}
 		// lowercase show message success
 		for (var i = 0; i < $scope.list_server.length; i++) {
-			if (angular.lowercase($scope.list_server[i].pro_code) == angular.lowercase($scope.add_menu.pro_code)) {
+			if (angular.lowercase($scope.list_server[i].cung_code) == angular.lowercase($scope.add_menu.cung_code)) {
 				$scope.exiss = true;
 				$timeout(function () {
 					$scope.exiss = false;
@@ -117,13 +117,13 @@ var cung_hoang_dao_ctrl = function ($scope, $http, $window, $compile, $timeout) 
 				return;
 			}
 		}
-		if ($scope.add_menu.pro_description == null)
-			$scope.add_menu.pro_description = "";
+		if ($scope.add_menu.cung_description == null)
+			$scope.add_menu.cung_description = "";
 		//insert into table 
-		$http.post('/menu_CThoc', $scope.add_menu).then(function successCallback(response) {
-			//get pro_id kiem tra trùng id
+		$http.post('/cung_hoang_dao', $scope.add_menu).then(function successCallback(response) {
+			//get cung_id kiem tra trùng id
 			$scope.add_menu.No = $scope.list_server.length + 1;
-			$scope.add_menu.pro_id = response.data.insertId;
+			$scope.add_menu.cung_id = response.data.insertId;
 			$scope.list_server.push($scope.add_menu);
 			//
 			var dt = jQuery('#data_table').dataTable();
@@ -131,10 +131,10 @@ var cung_hoang_dao_ctrl = function ($scope, $http, $window, $compile, $timeout) 
 			dt.fnDraw();
 			$compile(document.getElementById('data_table'))($scope);
 			//trang thai = 1 
-			$scope.add_menu.pro_status = 1;
+			$scope.add_menu.cung_status = 1;
 			$scope.list_server.push($scope.add_menu);
-			$scope.pro_code = $scope.add_menu.pro_code;
-			$scope.pro_name = $scope.add_menu.pro_name;
+			$scope.cung_code = $scope.add_menu.cung_code;
+			$scope.cung_name = $scope.add_menu.cung_name;
 			//
 			$scope.visibility = true;
 			$timeout(function () {
@@ -157,7 +157,7 @@ var cung_hoang_dao_ctrl = function ($scope, $http, $window, $compile, $timeout) 
 	//xoa
 	$scope.remove = function () {
 		var stt;
-		$http.delete('/menu_CThoc/' + $scope.id).then(function successCallback(response) {
+		$http.delete('/cung_hoang_dao/' + $scope.id).then(function successCallback(response) {
 			if (response.data != 0) {
 				var tr = jQuery('#' + $scope.id).closest('tr');
 				var dt = jQuery('#data_table').dataTable();
@@ -218,7 +218,7 @@ var cung_hoang_dao_ctrl = function ($scope, $http, $window, $compile, $timeout) 
 			return;
 		}
 		for (var i = 0; i < $scope.list_server.length; i++) {
-			if (angular.lowercase($scope.list_server[i].pro_code) == angular.lowercase($scope.edit_menu.pro_code) && $scope.list_server[i].pro_id != $scope.edit_menu.pro_id) {
+			if (angular.lowercase($scope.list_server[i].cung_code) == angular.lowercase($scope.edit_menu.cung_code) && $scope.list_server[i].cung_id != $scope.edit_menu.cung_id) {
 				$scope.exiss = true;
 				refresh();
 				$timeout(function () {
@@ -227,14 +227,14 @@ var cung_hoang_dao_ctrl = function ($scope, $http, $window, $compile, $timeout) 
 				return;
 			}
 		}
-		$http.put('/menu_CThoc/' + $scope.edit_menu.pro_id, $scope.edit_menu).then(function successCallback(response) {
+		$http.put('/cung_hoang_dao/' + $scope.edit_menu.cung_id, $scope.edit_menu).then(function successCallback(response) {
 			for (var i = 0; i < $scope.list_server.length; i++) {
-				if ($scope.list_server[i].pro_id == $scope.edit_menu.pro_id) {
+				if ($scope.list_server[i].cung_id == $scope.edit_menu.cung_id) {
 					$scope.list_server[i] = $scope.edit_menu;
 				}
 			}
 			var dt = jQuery('#data_table').dataTable();
-			var row = jQuery("tr#" + $scope.edit_menu.pro_id);
+			var row = jQuery("tr#" + $scope.edit_menu.cung_id);
 			dt.fnUpdate($scope.edit_menu, row); // Row
 			dt.fnDraw();
 			$compile(document.getElementById('data_table'))($scope);

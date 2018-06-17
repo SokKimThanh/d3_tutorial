@@ -31,11 +31,7 @@
 				<th></th>
 			</tr>
 		</tfoot>
-	</table>
-
-
-
-
+	</table> 
 	<!-- modal ADD -->
 	<div class="container">
 		<!-- Modal Add content-->
@@ -43,7 +39,7 @@
 			<div class="modal-dialog ">
 				<!-- Modal content-->
 				<div class="alert alert-success" ng-if="visibility==true">
-					<strong>Success!</strong> You have successfully added the curriculum: <b>{{pro_code}}</b>, name <b>{{pro_name}}</b>.
+					<strong>Success!</strong> You have successfully added the curriculum: <b>{{cung_code}}</b>, name <b>{{cung_name}}</b>.
 				</div>
 
 				<form name="frmAdd" novalidate>
@@ -58,7 +54,7 @@
 							<div class="form-group col-xs-12 col-sm-6 col-md-6" ng-directive="strongSecret">
 								<label>Specializations Code</label>
 								<div>
-									<input style="width:95%; float:left" type="text" class="form-control" id="program_Code" ng-model="add_menu.pro_code" maxlength="10"
+									<input style="width:95%; float:left" type="text" class="form-control" id="program_Code" ng-model="add_menu.cung_code" maxlength="10"
 										name="strongSecret" strong-secret required><span style="color:red">&nbsp;&#42;</span>
 										<ul class="error-msgs">
 											<li ng-show="exiss">Code has been exist.</li>
@@ -75,7 +71,7 @@
 							<div class="form-group col-xs-12 col-sm-6 col-md-6">
 								<label> Name</label>
 								<div>
-									<input style="width:95%; float:left" type="text" class="form-control" id="program_Add" ng-model="add_menu.pro_name" name="strongSecret1"
+									<input style="width:95%; float:left" type="text" class="form-control" id="program_Add" ng-model="add_menu.cung_name" name="strongSecret1"
 										required><span style="color:red">&nbsp;&#42;</span>
 										<ul class="error-msgs" ng-messages="frmAdd.strongSecret1.$error" ng-if="frmAdd.$submitted || frmAdd.strongSecret1.$dirty">
 											<li ng-show="required1">This field must be enter.</li>
@@ -85,7 +81,7 @@
 
 							<div class="form-group col-xs-12 col-sm-6 col-md-6">
 								<label>Description</label>
-								<textarea style="width:95%" class="form-control" rows="3" id="description_Add" ng-model="add_menu.pro_description"></textarea>
+								<textarea style="width:95%" class="form-control" rows="3" id="description_Add" ng-model="add_menu.cung_description"></textarea>
 							</div>
 
 						</div>
@@ -97,11 +93,7 @@
 				</form>
 			</div>
 		</div>
-	</div>
-
-
-
-
+	</div> 
 	<!-- modal Edit -->
 	<div class="container">
 		<div class="modal fade container " id="myModalEdit" role="dialog">
@@ -118,7 +110,7 @@
 							<div class="form-group col-xs-12 col-sm-6 col-md-6">
 								<label>Specialization Code</label>
 								<div>
-									<input style="width:95%; float:left" type="text" class="form-control" id="programcode_Edit" ng-model="edit_menu.pro_code"
+									<input style="width:95%; float:left" type="text" class="form-control" id="programcode_Edit" ng-model="edit_menu.cung_code"
 										maxlength="10" name="strongSecret" strong-secret required>
 										<span style="color:red">&nbsp;&#42;</span>
 										<ul class="error-msgs">
@@ -135,7 +127,7 @@
 							</div>
 							<div class="form-group col-xs-12 col-sm-6 col-md-6">
 								<label>Name</label>
-								<div><input style="width:95%; float:left" type="text" class="form-control" id="programname_Edit" ng-model="edit_menu.pro_name" name="strongSecret1"
+								<div><input style="width:95%; float:left" type="text" class="form-control" id="programname_Edit" ng-model="edit_menu.cung_name" name="strongSecret1"
 										required>
 									<span style="color:red">&nbsp;&#42;</span>
 									<ul class="error-msgs" ng-messages="edit.strongSecret1.$error" ng-if="edit.$submitted || edit.strongSecret1.$dirty">
@@ -145,17 +137,17 @@
 							</div>
 							<div class="form-group col-xs-12 col-sm-6 col-md-6">
 								<label>Description</label>
-								<textarea style="width:95%" class="form-control" rows="3" id="description_Edit" ng-model="edit_menu.pro_description"></textarea>
+								<textarea style="width:95%" class="form-control" rows="3" id="description_Edit" ng-model="edit_menu.cung_description"></textarea>
 							</div>
 							<div class="form-group col-xs-12 col-sm-6 col-md-6">
 								<label style="display:block">Select status</label>
 								<form>
 									<label class="radio-inline">
-												<input type="radio"  name ="status_Edit" value="1" ng-model="edit_menu.pro_status" ng-checked="edit_menu.pro_status==1">
+												<input type="radio"  name ="status_Edit" value="1" ng-model="edit_menu.cung_status" ng-checked="edit_menu.cung_status==1">
 												Active
 								</label>
 									<label class="radio-inline">
-												<input type="radio"  name ="status_Edit" value="0" ng-model="edit_menu.pro_status" ng-checked="edit_menu.pro_status==0">
+												<input type="radio"  name ="status_Edit" value="0" ng-model="edit_menu.cung_status" ng-checked="edit_menu.cung_status==0">
 												Inactive
 
 								</label>
@@ -212,7 +204,4 @@
 
 		</div>
 	</div>
-
-
-
 </div>
