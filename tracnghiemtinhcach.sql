@@ -43,34 +43,34 @@ CREATE TABLE `cung_hoang_dao`  (
   `vi_tri` int(255) NULL DEFAULT NULL COMMENT 'vi tri cung hoang dao',
   `tinh_cach` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'tinh cach cung hoang dao',
   `image_path` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'hinh anh dai dien',
+  `language_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT 'vi' COMMENT 'ngon ngu vi:viet nam en:english',
   PRIMARY KEY (`cung_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cung_hoang_dao
 -- ----------------------------
-INSERT INTO `cung_hoang_dao` VALUES (1, 'bachduong', 'bach duong', 213, 194, 'con cuu trang', 1, 'em  be so sinh', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (2, 'aries', 'aries', 213, 194, 'A white sheep', 1, 'baby', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (3, 'kimnguu', 'kim nguu', 204, 205, 'con bo', 2, 'em be duoc an ngon mac dep', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-2.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (4, 'thaurus', 'thaurus', 204, 205, 'con bo', 2, 'em be duoc an ngon mac dep', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-2.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (5, 'songtu', 'song tu', 215, 206, 'cap song sinh', 3, 'em be ham hoc hoi', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-3.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (6, 'gemini', 'gemini', 215, 206, 'cap song sinh', 3, 'em be ham hoc hoi', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-4.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (7, 'cugiai', 'cu giai', 216, 227, 'con cua', 4, 'em be biet lo nghi den gia dinh', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-4.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (8, 'cancer', 'cancer', 216, 227, 'con cua', 4, 'em be biet lo nghi den gia dinh', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-4.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (9, 'sutu', 'su tu', 237, 228, 'con su tu', 5, 'hot boy hot girl', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-5.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (10, 'leo', 'leo', 237, 228, 'The lion', 5, 'hot boy hot girl', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-5.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (11, 'xunu', 'xu nu', 238, 229, 'co gai dong trinh', 6, 'hoc sinh cham ngoan', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (12, 'vigor', 'vigor', 238, 229, 'co gai dong trinh', 6, 'hoc sinh cham ngoan', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (13, 'thienbinh', 'thien binh', 239, 2210, 'can can', 7, 'hoc sinh da tot nghiep', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (14, 'libra', 'libra', 239, 2210, 'can can', 7, 'hoc sinh da tot nghiep', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (15, 'thienyet', 'thien yet', 2310, 2211, 'con bo cap', 8, 'thanh nien cung', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (16, 'scopius', 'scopius', 2310, 2211, 'con bo cap', 8, 'thanh nien cung', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (17, 'nhanma', 'nhanma', 2311, 2212, 'sinh vat nua nguoi nua ngua tay cam cung ten', 9, 'thanh nien roi xa to am', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-9.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (18, 'sagittarius', 'sagittarius', 2311, 2212, 'sinh vat nua nguoi nua ngua tay cam cung ten', 9, 'thanh nien roi xa to am', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-9.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (19, 'maket', 'maket', 2212, 191, 'con de co duoi ca', 10, 'ong cu non', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-10.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (20, 'baobinh', 'baobinh', 201, 182, 'nguoi mang nuoc', 11, 'ong ba cu', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-11.jpg');
-INSERT INTO `cung_hoang_dao` VALUES (21, 'songngu', 'songngu', 192, 203, 'hai con ca', 12, 'thay boi', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-12.jpg');
-
+INSERT INTO `cung_hoang_dao` VALUES (1, 'bachduong', 'bach duong', 213, 194, 'con cuu trang', 1, 'em  be so sinh', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg', 'vi');
+INSERT INTO `cung_hoang_dao` VALUES (2, 'aries', 'aries', 213, 194, 'A white sheep', 1, 'baby', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg', 'en');
+INSERT INTO `cung_hoang_dao` VALUES (3, 'kimnguu', 'kim nguu', 204, 205, 'con bo', 2, 'em be duoc an ngon mac dep', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-2.jpg', 'vi');
+INSERT INTO `cung_hoang_dao` VALUES (4, 'thaurus', 'thaurus', 204, 205, 'con bo', 2, 'em be duoc an ngon mac dep', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-2.jpg', 'en');
+INSERT INTO `cung_hoang_dao` VALUES (5, 'songtu', 'song tu', 215, 206, 'cap song sinh', 3, 'em be ham hoc hoi', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-3.jpg', 'vi');
+INSERT INTO `cung_hoang_dao` VALUES (6, 'gemini', 'gemini', 215, 206, 'cap song sinh', 3, 'em be ham hoc hoi', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-4.jpg', 'en');
+INSERT INTO `cung_hoang_dao` VALUES (7, 'cugiai', 'cu giai', 216, 227, 'con cua', 4, 'em be biet lo nghi den gia dinh', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-4.jpg', 'vi');
+INSERT INTO `cung_hoang_dao` VALUES (8, 'cancer', 'cancer', 216, 227, 'con cua', 4, 'em be biet lo nghi den gia dinh', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-4.jpg', 'en');
+INSERT INTO `cung_hoang_dao` VALUES (9, 'sutu', 'su tu', 237, 228, 'con su tu', 5, 'hot boy hot girl', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-5.jpg', 'vi');
+INSERT INTO `cung_hoang_dao` VALUES (10, 'leo', 'leo', 237, 228, 'The lion', 5, 'hot boy hot girl', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-5.jpg', 'en');
+INSERT INTO `cung_hoang_dao` VALUES (11, 'xunu', 'xu nu', 238, 229, 'co gai dong trinh', 6, 'hoc sinh cham ngoan', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg', 'vi');
+INSERT INTO `cung_hoang_dao` VALUES (12, 'vigor', 'vigor', 238, 229, 'co gai dong trinh', 6, 'hoc sinh cham ngoan', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg', 'en');
+INSERT INTO `cung_hoang_dao` VALUES (13, 'thienbinh', 'thien binh', 239, 2210, 'can can', 7, 'hoc sinh da tot nghiep', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg', 'vi');
+INSERT INTO `cung_hoang_dao` VALUES (14, 'libra', 'libra', 239, 2210, 'can can', 7, 'hoc sinh da tot nghiep', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg', 'en');
+INSERT INTO `cung_hoang_dao` VALUES (15, 'thienyet', 'thien yet', 2310, 2211, 'con bo cap', 8, 'thanh nien cung', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg', 'vi');
+INSERT INTO `cung_hoang_dao` VALUES (16, 'scopius', 'scopius', 2310, 2211, 'con bo cap', 8, 'thanh nien cung', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat.jpg', 'en');
+INSERT INTO `cung_hoang_dao` VALUES (17, 'nhanma', 'nhanma', 2311, 2212, 'sinh vat nua nguoi nua ngua tay cam cung ten', 9, 'thanh nien roi xa to am', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-9.jpg', 'vi');
+INSERT INTO `cung_hoang_dao` VALUES (18, 'sagittarius', 'sagittarius', 2311, 2212, 'sinh vat nua nguoi nua ngua tay cam cung ten', 9, 'thanh nien roi xa to am', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-9.jpg', 'en');
+INSERT INTO `cung_hoang_dao` VALUES (19, 'maket', 'maket', 2212, 191, 'con de co duoi ca', 10, 'ong cu non', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-10.jpg', 'vi');
+INSERT INTO `cung_hoang_dao` VALUES (20, 'baobinh', 'baobinh', 201, 182, 'nguoi mang nuoc', 11, 'ong ba cu', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-11.jpg', 'vi');
+INSERT INTO `cung_hoang_dao` VALUES (21, 'songngu', 'songngu', 192, 203, 'hai con ca', 12, 'thay boi', 'http://nuocnhatplus.com/wp-content/uploads/2017/07/ten-12-cung-hoang-dao-bang-tieng-nhat-12.jpg', 'vi');
 -- ----------------------------
 -- Table structure for question
 -- ----------------------------
