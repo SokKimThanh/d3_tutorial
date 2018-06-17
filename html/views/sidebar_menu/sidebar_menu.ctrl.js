@@ -10,5 +10,6 @@ var sidebar_menu_ctrl = function ($scope) {
         { title: "modal", href: "/#!/modal", class: "fa fa-fw fa-square", span: "modal" },
         { title: "Udacity Retain", href: "/#!/udacity_retain", class: "fa fa-fw fa-square", span: "Udacity Retain" },
         { title: "Udacity Attendance", href: "/#!/udacity_attendance", class: "fa fa-fw fa-square", span: "Udacity Attendance" },
+        { title: "Horoscope", href: "/#!/cung_hoang_dao", class: "fa fa-fw fa-circle", span: "Cung Hoàng Đạo" },
     ]
 }

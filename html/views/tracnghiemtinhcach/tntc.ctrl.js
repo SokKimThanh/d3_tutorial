@@ -149,17 +149,20 @@ var trac_nghiem_tinh_cach_ctrl = function ($scope, d3service, $timeout, $filter,
       alert("no data")
     }
   }
+  let refresh = function () {
 
+    $http({
+      method: 'GET',
+      url: '/trac_nghiem_tinh_cach'
+    }).then(function successCallback(response) {
+      let trac_nghiem_tinh_cach_list = response.data;
+      console.table(trac_nghiem_tinh_cach_list);
+    }, function errorCallback(response) {
 
-  // $http({ method: 'GET', url: '/trac_nghiem_tinh_cach' }).then(function success(res) {
-  //   if (res.data.length > 0) {
-  //     $scope.trac_nghiem_tinh_cach_list = res.data;
-  //   } else {
-  //     alert("no data")
-  //   }
-  // }, function error(err) {
-  //   alert(err)
-  // });
+    });
+  }
+  refresh();
+
   let openPopup = function (item) {
     try {
       if (utility.checkValue(item)) {

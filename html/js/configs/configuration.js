@@ -31,5 +31,8 @@ var configuration = function ($routeProvider, $qProvider) {
     }).when("/udacity_attendance", {
       templateUrl: "views/UdacityAttendance/udacity_attendance.view.html",
       controller: "udacity_attendance_ctrl" 
+    }).when("/cung_hoang_dao", {
+      templateUrl: "views/cung_hoang_dao/cung_hoang_dao.view.html",
+      controller: "cung_hoang_dao_ctrl" 
     })
 };

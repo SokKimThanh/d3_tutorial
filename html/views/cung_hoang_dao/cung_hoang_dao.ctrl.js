@@ -1,4 +1,4 @@
-app.controller('cth_controller', ['$scope', '$http', '$window', '$compile', '$timeout', function ($scope, $http, $window, $compile, $timeout) {
+var cung_hoang_dao_ctrl = function ($scope, $http, $window, $compile, $timeout) {
 	var refresh = function () {
 
 		$http({
@@ -246,5 +246,4 @@ app.controller('cth_controller', ['$scope', '$http', '$window', '$compile', '$ti
 
 		});
 	}
-}]);
-// ./end controller
+};

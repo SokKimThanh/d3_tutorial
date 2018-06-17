@@ -2,13 +2,22 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
-var portmysql = 3333;
+var portmysql = 3306, password = "123456", database = 'tracnghiemtinhcach';
+let getDefaultPort = (portmysql) => {
+    let port = 0;
+    if (portmysql !== 3333) {
+        port = 3306; 
+    } else {
+        port = 3333;
+    }
+    return port;
+}
 var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    database: 'tracnghiemtinhcach',
-    password: "123456",
-    port: portmysql
+    database: database,
+    password: password,
+    port: getDefaultPort(portmysql)
 });
 db.connect();
 router.use(bodyParser.json());
@@ -52,24 +61,24 @@ router.post(decode_url, function (req, res) {
     });
 });
 
-//sua  
-router.put(RegExp('/cm/edit/dt/question_id/:question_id'), function (req, res) {
-    let question_id = req.params.question_id;
-    alert(question_id)
-    let code = req.body.code;
-    let number = req.body.number;
-    let question = req.body.question;
-    var sql = "update question set code='" + code + "', number='" + number + "', question='" + question + "', status='" + 1 + "' where id = '" + question_id + "'";
+//sua
+// router.put('/cm/edit/dt/question_id/:question_id', function (req, res) {
+//     let question_id = req.params.question_id;
+//     alert(question_id)
+//     let code = req.body.code;
+//     let number = req.body.number;
+//     let question = req.body.question;
+//     var sql = "update question set code='" + code + "', number='" + number + "', question='" + question + "', status='" + 1 + "' where id = '" + question_id + "'";
 
-    db.query(sql, function (err, rows, fields) {
-        if (err) {
-            db.end();
-            throw err;
-        }
-        else {
-            res.json(rows);
-        }
-    });
-});
+//     db.query(sql, function (err, rows, fields) {
+//         if (err) {
+//             db.end();
+//             throw err;
+//         }
+//         else {
+//             res.json(rows);
+//         }
+//     });
+// });
 
 module.exports = router;
